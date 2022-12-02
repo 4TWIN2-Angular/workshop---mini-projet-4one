@@ -53,9 +53,26 @@
                   </td></ng-template
                 >
                 <td>{{ contrat.montantContrat }} TND</td>
-                <td>
-                  {{ contrat.etudiant.prenomE }} {{ contrat.etudiant.nomE }}
-                </td>
+                <div
+                  *ngIf="
+                    contrat.etudiant?.prenomE && contrat.etudiant?.nomE;
+                    else assignStudent
+                  "
+                >
+                  <td>
+                    {{ contrat.etudiant.prenomE }} {{ contrat.etudiant.nomE }}
+                  </td>
+                </div>
+                <ng-template #assignStudent>
+                  <td>
+                    <a href="#" class="btn btn-neutral btn-icon">
+                      <span class="btn-inner--icon"
+                        ><i class="fas fa-plus"></i
+                      ></span>
+                      <span class="btn-inner--text">affecter étudiant</span>
+                    </a>
+                  </td></ng-template
+                >
                 <td>
                   <button
                     class="rounded-btn mr-3"

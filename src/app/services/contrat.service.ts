@@ -24,5 +24,13 @@ export class ContratService {
     );
   }
 
+  addContrat(contrat: Contrat): Observable<Contrat> {
+    return this.http.post<Contrat>(
+      this.apiUrl + "/addContrat",
+      contrat,
+      this.httpOptions
+    );
+  }
+
   constructor(private http: HttpClient) {}
 }
