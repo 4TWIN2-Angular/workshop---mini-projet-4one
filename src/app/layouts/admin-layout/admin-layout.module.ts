@@ -25,6 +25,7 @@ import { UpdateContratComponent } from "src/app/pages/update-contrat/update-cont
     HttpClientModule,
     NgbModule,
     ClipboardModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     DashboardComponent,

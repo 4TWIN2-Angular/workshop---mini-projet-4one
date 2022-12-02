@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 
@@ -18,6 +18,7 @@ import { UpdateDetailEquipeComponent } from "./pages/update-detail-equipe/update
 import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
 import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.component";
+import { EtudiantsService } from "./pages/tables/etudiants.service";
 
 @NgModule({
   imports: [
@@ -28,8 +29,8 @@ import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.compo
     NgbModule,
     RouterModule,
     AppRoutingModule,
-
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -42,7 +43,7 @@ import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.compo
     UpdateDetailEquipeComponent,
   ],
 
-  providers: [],
+  providers: [EtudiantsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
