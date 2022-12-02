@@ -17,6 +17,14 @@ export class TablesComponent implements OnInit {
     });
   }
 
+  deleteContrat(idContrat: number) {
+    this.cs
+      .deleteContrat(idContrat)
+      .subscribe(() =>
+        this.cs.getContrats().subscribe((res) => (this.list = res))
+      );
+  }
+
   ngOnInit() {
     console.log(this.getDataFromContratService());
   }

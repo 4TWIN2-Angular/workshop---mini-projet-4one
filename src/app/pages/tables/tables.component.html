@@ -10,7 +10,7 @@
 <div class="container-fluid mt--7">
   <!-- Table -->
   <!-- Dark table -->
-  <div class="row mt-5">
+  <div class="row mt-3">
     <div class="col">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
@@ -25,6 +25,7 @@
                 <th scope="col">Specialite</th>
                 <th scope="col">Archive</th>
                 <th scope="col">Montant</th>
+                <th scope="col">Etudiant</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -51,8 +52,9 @@
                     </span>
                   </td></ng-template
                 >
+                <td>{{ contrat.montantContrat }} TND</td>
                 <td>
-                  {{ contrat.montantContrat }}
+                  {{ contrat.etudiant.prenomE }} {{ contrat.etudiant.nomE }}
                 </td>
                 <td>
                   <button
@@ -66,6 +68,7 @@
                     class="rounded-btn mr-3"
                     style="background-color: #f44336"
                     type="button"
+                    (click)="deleteContrat(contrat.idContrat)"
                   >
                     <i class="fas fa-trash"></i>
                   </button>
@@ -77,4 +80,7 @@
       </div>
     </div>
   </div>
+  <a routerLink="add" class="float-btn">
+    <i class="fa fa-plus my-float"></i>
+  </a>
 </div>

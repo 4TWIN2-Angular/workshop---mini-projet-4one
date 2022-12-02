@@ -13,9 +13,15 @@ export class ContratService {
     }),
   };
 
-  contratsUrl = "http://localhost:9090/Contrats";
+  apiUrl = "http://localhost:9090";
   getContrats(): Observable<Contrat[]> {
-    return this.http.get<Contrat[]>(this.contratsUrl);
+    return this.http.get<Contrat[]>(this.apiUrl + "/Contrats");
+  }
+
+  deleteContrat(idContrat: number): Observable<Contrat> {
+    return this.http.delete<Contrat>(
+      this.apiUrl + "/removeContrat/" + idContrat
+    );
   }
 
   constructor(private http: HttpClient) {}
