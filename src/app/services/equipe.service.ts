@@ -26,4 +26,15 @@ export class EquipeService {
 
 
   }
+
+  deleteEquipe(id:any){
+
+    return this.http.delete(this.accountUrl+"/removeEquipe/"+id);
+  }
+
+  updateEquipe(equipe:any)
+  {
+    return this.http.put(this.accountUrl+"/updateEquipe",equipe);
+
+  }
 }

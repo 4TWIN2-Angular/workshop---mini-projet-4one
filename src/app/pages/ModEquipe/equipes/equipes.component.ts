@@ -17,6 +17,11 @@ listEquipes!:Equipe[];
     console.log(this.listEquipes);
   
   }
-  
+   
+  deleteEquipe(id:any)
+  {
+    this.equipeService.deleteEquipe(id).subscribe();
+
+  }
 
 }
