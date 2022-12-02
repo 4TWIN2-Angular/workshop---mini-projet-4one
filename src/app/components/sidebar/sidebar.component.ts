@@ -28,6 +28,15 @@ export const ROUTES: RouteInfo[] = [
     icon: "ni-archive-2 text-red",
     class: "",
   },
+  {
+    path: "/equipes",
+    title: "Equipes",
+    icon: "ni-archive-2 text-red",
+    class: "",
+  },
+  
+
+
   { path: "/login", title: "Login", icon: "ni-key-25 text-info", class: "" },
   {
     path: "/register",

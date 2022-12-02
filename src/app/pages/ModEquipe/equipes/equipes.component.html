@@ -1,0 +1,81 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <!-- Dark table -->
+    <div class="row mt-5">
+      <div class="col">
+        <div class="card bg-default shadow">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="text-white mb-0">Les equipes</h3>
+          </div>
+          <div class="table-responsive" >
+            <table class="table align-items-center table-dark table-flush">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Nom Equipe</th>
+                  <th scope="col">Niveau</th>
+                 <th scope="col">Actions </th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let e of listEquipes">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <a
+                        href="javascript:void(0)"
+                        class="avatar rounded-circle mr-3"
+                      >
+                        <img
+                          alt="Image placeholder"
+                          src="../assets/img/theme/bootstrap.jpg"
+                        />
+                      </a>
+                      <div class="media-body">
+                        <span class="mb-0 text-sm">{{e.nomEquipe}}</span>
+                      </div>
+                    </div>
+                  </th>
+                 
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i> {{e.niveau}}
+                    </span>
+                  </td>
+                  <td>
+                    <button>add</button>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i> Modifier Equipe
+                    </span>
+                  </td>
+                  
+                 
+               
+                  <nb-card-body>
+                    <ng2-smart-table >
+                    </ng2-smart-table>
+                  </nb-card-body>
+                 
+                 
+                 
+                  
+                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
