@@ -8,6 +8,7 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { AddContratComponent } from "src/app/pages/add-contrat/add-contrat.component";
 import { UpdateContratComponent } from "src/app/pages/update-contrat/update-contrat.component";
 import { EquipesComponent } from "src/app/pages/ModEquipe/equipes/equipes.component";
+import { AddEquipeComponent } from "src/app/pages/add-equipe/add-equipe.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -18,4 +19,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },
   { path: "equipes", component: EquipesComponent },
+  { path: "add-equipe", component: AddEquipeComponent },
 ];

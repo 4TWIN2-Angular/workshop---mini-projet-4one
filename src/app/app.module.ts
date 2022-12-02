@@ -12,6 +12,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
 
+import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
+
 import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
 
@@ -32,6 +34,7 @@ import { ComponentsModule } from "./components/components.module";
     AdminLayoutComponent,
     AuthLayoutComponent,
     EquipesComponent,
+    AddEquipeComponent,
   ],
 
   providers: [],
