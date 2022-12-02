@@ -1,3 +1,5 @@
+
+
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
@@ -20,15 +22,18 @@
           <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
               <tr>
+                <th></th>
                 <th scope="col">Nom Equipe</th>
                 <th scope="col">Niveau</th>
                <th scope="col">Actions </th>
-                <th scope="col"></th>
+                
               </tr>
             </thead>
             <tbody>
-              <tr  *ngFor="let e of listEquipes">
+              <tr  *ngFor="let e of listEquipes;let i=index">
+                <td>{{i+1}}</td>
                 <th scope="row">
+                  
                   <div class="media align-items-center">
                     <a
                       href="javascript:void(0)"
@@ -49,29 +54,17 @@
                   <span class="badge badge-dot mr-4">
                     <i class="bg-warning"></i> {{e.niveau}}
                   </span>
+                  
                 </td>
                 <td>
-                  <button routerLink="/add-equipe">add</button>
+                  <button class="btn bg-gradient-danger" routerLink="/add-equipe">                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  </button>&nbsp;
                 
-                
-                  <button (click)="deleteEquipe(e.idEquipe)">Delete</button>
-                  <button [routerLink]="['/updateEquipe',e.idEquipe]">Update</button>
-
+                  <button class="btn btn-danger" (click)="deleteEquipe(e.idEquipe)"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp;
+                  <button class="btn btn-info" [routerLink]="['/updateEquipe',e.idEquipe]"><i class="fa fa-pen" aria-hidden="true"></i></button>&nbsp;
                 </td>
               
                 
-                
-               
-             
-                <nb-card-body>
-                  <ng2-smart-table >
-                  </ng2-smart-table>
-                </nb-card-body>
-               
-               
-               
-                
-               
               </tr>
             </tbody>
           </table>
