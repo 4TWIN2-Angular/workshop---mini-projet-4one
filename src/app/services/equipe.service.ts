@@ -20,7 +20,7 @@ export class EquipeService {
 
   }
 
-  public addEquipe(equipe:Equipe){
+  public addEquipe(equipe:any){
 
     return this.http.post(this.accountUrl+"/addEquipe",equipe);
 

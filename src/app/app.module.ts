@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { EquipesComponent } from './pages/ModEquipe/equipes/equipes.component';
+import { AddEquipeComponent } from './pages/add-equipe/add-equipe.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { EquipesComponent } from './pages/ModEquipe/equipes/equipes.component';
     AdminLayoutComponent,
     AuthLayoutComponent,
     EquipesComponent,
+    AddEquipeComponent
    
   ],
   providers: [],
