@@ -37,4 +37,11 @@ export class EquipeService {
     return this.http.put(this.accountUrl+"/updateEquipe",equipe);
 
   }
+  getEquipe(id:any){
+
+
+    return this.http.get(this.accountUrl+"/getEquipe/"+id);
+
+  }
+
 }

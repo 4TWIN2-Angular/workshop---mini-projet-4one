@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { EquipesComponent } from './pages/ModEquipe/equipes/equipes.component';
 import { AddEquipeComponent } from './pages/add-equipe/add-equipe.component';
+import { UpdateEquipeComponent } from './pages/update-equipe/update-equipe.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AddEquipeComponent } from './pages/add-equipe/add-equipe.component';
     AdminLayoutComponent,
     AuthLayoutComponent,
     EquipesComponent,
-    AddEquipeComponent
+    AddEquipeComponent,
+    UpdateEquipeComponent
    
   ],
   providers: [],

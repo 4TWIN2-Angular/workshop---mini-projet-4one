@@ -7,6 +7,7 @@ import { UserProfileComponent } from "../../pages/user-profile/user-profile.comp
 import { TablesComponent } from "../../pages/tables/tables.component";
 import { EquipesComponent } from "src/app/pages/ModEquipe/equipes/equipes.component";
 import { AddEquipeComponent } from "src/app/pages/add-equipe/add-equipe.component";
+import { UpdateEquipeComponent } from "src/app/pages/update-equipe/update-equipe.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -16,5 +17,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "maps", component: MapsComponent },
   {path:"equipes" ,component:EquipesComponent},
   { path:'add-equipe',component: AddEquipeComponent},
+  { path:'updateEquipe/:idEquipe',component: UpdateEquipeComponent},
+
 
 ];
