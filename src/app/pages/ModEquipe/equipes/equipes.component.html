@@ -52,10 +52,14 @@
                 </td>
                 <td>
                   <button routerLink="/add-equipe">add</button>
-                </td>
-                <td>
+                
+                
                   <button (click)="deleteEquipe(e.idEquipe)">Delete</button>
+                  <button [routerLink]="['/updateEquipe',e.idEquipe]">Update</button>
+
                 </td>
+              
+                
                 
                
              
