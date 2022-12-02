@@ -10,6 +10,8 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
+
 import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
 
@@ -22,8 +24,16 @@ import { ComponentsModule } from "./components/components.module";
     NgbModule,
     RouterModule,
     AppRoutingModule,
+
+    HttpClientModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent,
+    EquipesComponent,
+  ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
