@@ -9,11 +9,13 @@ import { ContratService } from "src/app/services/contrat.service";
 })
 export class TablesComponent implements OnInit {
   list: Contrat[] = [];
+  alert: boolean;
   constructor(private cs: ContratService) {}
   getDataFromContratService() {
     this.cs.getContrats().subscribe((res) => {
-      this.list = res;
-      console.log(res);
+      this.cs.contratslist = res;
+      this.list = this.cs.contratslist;
+      //console.log(this.cs.contratslist);
     });
   }
 
@@ -26,6 +28,7 @@ export class TablesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.getDataFromContratService());
+    this.getDataFromContratService();
+    this.alert = this.cs.b;
   }
 }

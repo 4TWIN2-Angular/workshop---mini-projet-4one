@@ -10,6 +10,11 @@
 <div class="container-fluid mt--7">
   <!-- Table -->
   <!-- Dark table -->
+  <div *ngIf="alert === true" class="alert alert-success" role="alert">
+    <i class="fa fa-check-circle mr-2"></i>
+    <strong>Succès!</strong> Contrat ajouté avec succès.
+  </div>
+
   <div class="row mt-3">
     <div class="col">
       <div class="card bg-default shadow">

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Contrat } from "src/app/models/contrat";
 import { ContratService } from "src/app/services/contrat.service";
 import { DatePipe } from "@angular/common";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-contrat",
@@ -11,7 +12,7 @@ import { DatePipe } from "@angular/common";
 export class AddContratComponent implements OnInit {
   contrat = <Contrat>{};
 
-  constructor(private cs: ContratService) {}
+  constructor(private cs: ContratService, private router: Router) {}
 
   addContrat() {
     let formatedDateDebut = new DatePipe("en-US").transform(
@@ -27,8 +28,16 @@ export class AddContratComponent implements OnInit {
       dateDebutContrat: formatedDateDebut,
       dateFinContrat: formatedDateFin,
     };
-    console.log(new_contrat);
+    //console.log(new_contrat);
     this.cs.addContrat(new_contrat).subscribe();
+    this.router.navigate(["/contrats"]).then(() => {
+      this.cs.getContrats().subscribe((res) => {
+        this.cs.contratslist = res;
+        console.log(this.cs.contratslist);
+      });
+      this.cs.b = true;
+      console.log(this.cs.b);
+    });
   }
 
   ngOnInit(): void {}

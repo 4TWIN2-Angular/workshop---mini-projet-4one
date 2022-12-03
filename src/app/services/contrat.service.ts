@@ -13,6 +13,9 @@ export class ContratService {
     }),
   };
 
+  contratslist: Contrat[] = [];
+  b: boolean = false;
+
   apiUrl = "http://localhost:9090";
   getContrats(): Observable<Contrat[]> {
     return this.http.get<Contrat[]>(this.apiUrl + "/Contrats");
