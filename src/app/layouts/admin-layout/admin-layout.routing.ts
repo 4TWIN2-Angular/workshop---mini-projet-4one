@@ -22,4 +22,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "equipes", component: EquipesComponent },
   { path: "add-equipe", component: AddEquipeComponent },
   { path: "updateEquipe/:idEquipe", component: UpdateEquipeComponent },
+  { path: "icons", component: IconsComponent },
+  { path: "maps", component: MapsComponent },
 ];

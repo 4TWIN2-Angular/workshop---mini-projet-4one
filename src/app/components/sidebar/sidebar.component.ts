@@ -34,8 +34,12 @@ export const ROUTES: RouteInfo[] = [
     icon: "ni-archive-2 text-red",
     class: "",
   },
-  
-
+  {
+    path: "/ListEquipe",
+    title: "Detail equipes",
+    icon: "ni-folder-17 text-black",
+    class: "",
+  },
 
   { path: "/login", title: "Login", icon: "ni-key-25 text-info", class: "" },
   {
