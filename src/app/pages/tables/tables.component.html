@@ -70,12 +70,18 @@
                 </div>
                 <ng-template #assignStudent>
                   <td>
-                    <a href="#" class="btn btn-neutral btn-icon">
+                    <button
+                      type="button"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                      class="btn btn-neutral btn-icon"
+                      (click)="getIdContrat(contrat.idContrat)"
+                    >
                       <span class="btn-inner--icon"
                         ><i class="fas fa-plus"></i
                       ></span>
                       <span class="btn-inner--text">affecter étudiant</span>
-                    </a>
+                    </button>
                   </td></ng-template
                 >
                 <td>
@@ -105,4 +111,78 @@
   <a routerLink="add" class="float-btn">
     <i class="fa fa-plus my-float"></i>
   </a>
+  <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Affecter un étudiant
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            #f="ngForm"
+            (ngSubmit)="assignEtudiantToContrat(etudiant.idEtudiant)"
+          >
+            <div class="form-group">
+              <label class="form-control-label" for="select-specialite"
+                >Etudiants</label
+              >
+              <select
+                id="select-etudiant"
+                name="etudiant"
+                class="form-control form-control-alternative mb-2"
+                aria-label="Default select example"
+                [(ngModel)]="etudiant.idEtudiant"
+                required
+                #etudiant="ngModel"
+              >
+                <option value="default">----</option>
+                <option
+                  *ngFor="let etudiant of studentsList"
+                  [value]="etudiant.idEtudiant"
+                >
+                  {{ etudiant.prenomE }} {{ etudiant.nomE }}
+                </option>
+              </select>
+              <div *ngIf="etudiant.errors?.['required']">
+                <div class="alert alert-danger" role="alert">
+                  Choisir un étudiant
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="f.invalid"
+            >
+              Sauvegarder
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

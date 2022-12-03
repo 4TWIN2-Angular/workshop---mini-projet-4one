@@ -8,6 +8,7 @@
   width: 40px;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 2px 2px 3px black;
 }
 
 .rounded-btn:active {
@@ -25,6 +26,10 @@
   border-radius: 50px;
   text-align: center;
   box-shadow: 2px 2px 3px black;
+}
+
+.float-btn:active {
+  transform: translateY(2px);
 }
 
 .my-float {
