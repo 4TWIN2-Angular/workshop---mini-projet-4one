@@ -21,7 +21,13 @@ listEquipes!:Equipe[];
   deleteEquipe(id:any)
   {
     this.equipeService.deleteEquipe(id).subscribe();
+    location.reload();
 
+  }
+  upgradeEquipes()
+  {
+    this.equipeService.upgradeEquipe().subscribe();
+    location.reload();
   }
 
 }
