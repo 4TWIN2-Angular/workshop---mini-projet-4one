@@ -49,5 +49,10 @@ export class EquipeService {
     return this.http.get(this.accountUrl+"/upgradeEquipe");
 
   }
+  getEtudiantsByEquipe(id:any)
+  {
+    return this.http.get(this.accountUrl+"/getEtudiantsByEquipe/"+id);
+
+  }
 
 }
