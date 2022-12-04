@@ -13,9 +13,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
 import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.component";
-
 import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
+import { ListEquipeComponent } from "./list-equipe/list-equipe.component";
 
 @NgModule({
   imports: [
@@ -36,6 +36,7 @@ import { ComponentsModule } from "./components/components.module";
     EquipesComponent,
     AddEquipeComponent,
     UpdateEquipeComponent,
+    ListEquipeComponent,
   ],
 
   providers: [],
