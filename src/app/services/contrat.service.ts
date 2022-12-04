@@ -15,6 +15,7 @@ export class ContratService {
   };
 
   b: boolean = false;
+  text: string = "";
 
   apiUrl = "http://localhost:9090";
   getContrats(): Observable<Contrat[]> {
@@ -33,6 +34,18 @@ export class ContratService {
       contrat,
       this.httpOptions
     );
+  }
+
+  updateContrat(contrat: Contrat, idContrat: number): Observable<Contrat> {
+    return this.http.put<Contrat>(
+      this.apiUrl + "/updateContrat/" + idContrat,
+      contrat,
+      this.httpOptions
+    );
+  }
+
+  getContratById(idContrat: number): Observable<Contrat> {
+    return this.http.get<Contrat>(this.apiUrl + "/Contrat/" + idContrat);
   }
 
   getEtudiants(): Observable<Etudiant[]> {

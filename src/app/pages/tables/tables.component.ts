@@ -13,12 +13,13 @@ export class TablesComponent implements OnInit {
   studentsList: Etudiant[] = [];
   etudiant = <Etudiant>{};
   alert: boolean;
+  msg: string;
   idContrat: number;
   constructor(private cs: ContratService) {}
   getDataFromContratService() {
     this.cs.getContrats().subscribe((res) => {
       this.list = res;
-      //console.log(this.cs.contratslist);
+      //console.log(this.list);
     });
 
     this.cs.getEtudiants().subscribe((res) => {
@@ -52,5 +53,6 @@ export class TablesComponent implements OnInit {
   ngOnInit() {
     this.getDataFromContratService();
     this.alert = this.cs.b;
+    this.msg = this.cs.text;
   }
 }

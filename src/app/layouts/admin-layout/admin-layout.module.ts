@@ -14,6 +14,7 @@ import { UserProfileComponent } from "../../pages/user-profile/user-profile.comp
 import { TablesComponent } from "../../pages/tables/tables.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AddContratComponent } from "src/app/pages/add-contrat/add-contrat.component";
+import { UpdateContratComponent } from "src/app/pages/update-contrat/update-contrat.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { AddContratComponent } from "src/app/pages/add-contrat/add-contrat.compo
     IconsComponent,
     MapsComponent,
     AddContratComponent,
+    UpdateContratComponent,
   ],
 })
 export class AdminLayoutModule {}
