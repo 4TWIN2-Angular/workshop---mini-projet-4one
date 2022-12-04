@@ -9,6 +9,7 @@ import { EquipeService } from 'src/app/services/equipe.service';
 })
 export class EquipesComponent implements OnInit {
 listEquipes!:Equipe[];
+listEtudiants!:any;
   constructor(private equipeService:EquipeService) { }
   
 
@@ -29,5 +30,8 @@ listEquipes!:Equipe[];
     this.equipeService.upgradeEquipe().subscribe();
     location.reload();
   }
-
+  getEtudiantsByEquipe(id:any)
+  {
+this.equipeService.getEtudiantsByEquipe(id).subscribe(res=>this.listEtudiants=res);
+  }
 }
