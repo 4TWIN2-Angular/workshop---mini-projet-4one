@@ -14,7 +14,6 @@ export class ContratService {
     }),
   };
 
-  contratslist: Contrat[] = [];
   b: boolean = false;
 
   apiUrl = "http://localhost:9090";

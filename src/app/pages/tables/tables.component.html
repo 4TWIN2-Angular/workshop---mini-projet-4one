@@ -10,9 +10,16 @@
 <div class="container-fluid mt--7">
   <!-- Table -->
   <!-- Dark table -->
-  <div *ngIf="alert === true" class="alert alert-success" role="alert">
-    <i class="fa fa-check-circle mr-2"></i>
+  <div
+    *ngIf="alert === true"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    <i class="fas fa-check-circle mr-2"></i>
     <strong>Succès!</strong> Contrat ajouté avec succès.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
   <div class="row mt-3">
@@ -109,7 +116,7 @@
     </div>
   </div>
   <a routerLink="add" class="float-btn">
-    <i class="fa fa-plus my-float"></i>
+    <i class="fas fa-plus my-float"></i>
   </a>
   <!-- Button trigger modal -->
 
@@ -164,6 +171,7 @@
               </select>
               <div *ngIf="etudiant.errors?.['required']">
                 <div class="alert alert-danger" role="alert">
+                  <i class="fas fa-exclamation-triangle mr-2"></i>
                   Choisir un étudiant
                 </div>
               </div>

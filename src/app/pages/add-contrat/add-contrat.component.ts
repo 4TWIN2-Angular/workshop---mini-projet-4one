@@ -30,14 +30,9 @@ export class AddContratComponent implements OnInit {
     };
     //console.log(new_contrat);
     this.cs.addContrat(new_contrat).subscribe();
-    this.router.navigate(["/contrats"]).then(() => {
-      this.cs.getContrats().subscribe((res) => {
-        this.cs.contratslist = res;
-        console.log(this.cs.contratslist);
-      });
-      this.cs.b = true;
-      console.log(this.cs.b);
-    });
+    this.cs.b = true;
+    //console.log(this.cs.b);
+    this.router.navigateByUrl("/contrats");
   }
 
   ngOnInit(): void {}

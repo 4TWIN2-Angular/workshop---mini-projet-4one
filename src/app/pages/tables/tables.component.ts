@@ -17,8 +17,7 @@ export class TablesComponent implements OnInit {
   constructor(private cs: ContratService) {}
   getDataFromContratService() {
     this.cs.getContrats().subscribe((res) => {
-      this.cs.contratslist = res;
-      this.list = this.cs.contratslist;
+      this.list = res;
       //console.log(this.cs.contratslist);
     });
 

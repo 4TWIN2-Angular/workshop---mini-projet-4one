@@ -36,6 +36,7 @@
                       />
                       <div *ngIf="dateDebut.errors?.['required']">
                         <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
                           Date debut obligatoire
                         </div>
                       </div>
@@ -57,6 +58,7 @@
                       />
                       <div *ngIf="dateFin.errors?.['required']">
                         <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
                           Date fin obligatoire
                         </div>
                       </div>
@@ -85,6 +87,7 @@
                       </select>
                       <div *ngIf="specialite.errors?.['required']">
                         <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
                           Specialité obligatoire
                         </div>
                       </div>
@@ -108,11 +111,13 @@
                       />
                       <div *ngIf="montant.errors?.['required']">
                         <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
                           Montant obligatoire
                         </div>
                       </div>
                       <div *ngIf="montant.errors?.['pattern']">
                         <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
                           Le montant unitaire ne contient que des chiffres
                           positives
                         </div>
@@ -161,6 +166,7 @@
                       </div>
                       <div *ngIf="archive.errors?.['required']">
                         <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
                           Choisissez si le contrat est archivé ou non
                         </div>
                       </div>
