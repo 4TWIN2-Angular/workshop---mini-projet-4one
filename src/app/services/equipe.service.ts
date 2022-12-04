@@ -44,4 +44,10 @@ export class EquipeService {
 
   }
 
+  upgradeEquipe()
+  {
+    return this.http.get(this.accountUrl+"/upgradeEquipe");
+
+  }
+
 }
