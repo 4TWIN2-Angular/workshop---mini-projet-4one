@@ -62,5 +62,14 @@ export class ContratService {
     );
   }
 
+  getMontantContratBetweenTwoDates(
+    startDate: string,
+    endDate: string
+  ): Observable<number> {
+    return this.http.get<number>(
+      this.apiUrl + "/sumMontant/" + startDate + "/" + endDate
+    );
+  }
+
   constructor(private http: HttpClient) {}
 }

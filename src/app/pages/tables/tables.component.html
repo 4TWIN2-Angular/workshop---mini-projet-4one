@@ -24,7 +24,7 @@
 
   <div class="row">
     <div class="col">
-      <div class="card bg-default shadow">
+      <div class="card bg-default shadow mb-5">
         <div class="card-header bg-transparent border-0">
           <h3 class="text-white mb-0">Contrats étudiants</h3>
         </div>
@@ -108,7 +108,7 @@
                   </button>
                   <button
                     class="rounded-btn mr-3"
-                    style="background-color: #f44336"
+                    style="background-color: #f75676"
                     type="button"
                     (click)="deleteContrat(contrat.idContrat)"
                   >
@@ -118,6 +118,86 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="background-color: #3f51b5; border-color: #3f51b5"
+        [hidden]="showForm === false"
+        (click)="clickShowFormButton()"
+      >
+        Montant à payer
+      </button>
+      <div class="card shadow" [hidden]="showForm">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Montant à payer</h3>
+          <div class="card-body">
+            <form
+              #form="ngForm"
+              (ngSubmit)="getMontantContratBetweenTwoDates()"
+            >
+              <h6 class="heading-small text-muted mb-4">Contrat information</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="date-debut"
+                        >Date debut</label
+                      >
+                      <input
+                        type="date"
+                        id="date-debut"
+                        name="dateDebut"
+                        class="form-control form-control-alternative"
+                        [(ngModel)]="date.startDate"
+                        required
+                        #dateDebut="ngModel"
+                      />
+                      <div *ngIf="dateDebut.errors?.['required']">
+                        <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
+                          Date debut obligatoire
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="date-fin"
+                        >Date fin</label
+                      >
+                      <input
+                        type="date"
+                        id="date-fin"
+                        name="dateFin"
+                        class="form-control form-control-alternative"
+                        [(ngModel)]="date.endDate"
+                        required
+                        #dateFin="ngModel"
+                      />
+                      <div *ngIf="dateFin.errors?.['required']">
+                        <div class="alert alert-danger" role="alert">
+                          <i class="fas fa-exclamation-triangle mr-2"></i>
+                          Date fin obligatoire
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+                [disabled]="form.invalid"
+                data-toggle="modal"
+                data-target="#exampleModal2"
+              >
+                Envoyer
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -191,6 +271,39 @@
               Sauvegarder
             </button>
           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal2"
+    tabindex="-1"
+    aria-labelledby="exampleModal2Label"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal2Label">Montant à payer</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Le montant à payer est :
+          <strong style="color: #f5365c"> {{ sumMontant }} TND</strong>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">

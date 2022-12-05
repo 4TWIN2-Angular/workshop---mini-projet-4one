@@ -15,7 +15,15 @@ export class TablesComponent implements OnInit {
   alert: boolean;
   msg: string;
   idContrat: number;
+  date = {
+    startDate: "",
+    endDate: "",
+  };
+  sumMontant: number;
+  showForm: boolean = true;
+
   constructor(private cs: ContratService) {}
+
   getDataFromContratService() {
     this.cs.getContrats().subscribe((res) => {
       this.list = res;
@@ -48,6 +56,19 @@ export class TablesComponent implements OnInit {
         this.cs.getContrats().subscribe((res) => (this.list = res))
       );
     //console.log(idEtudiant);
+  }
+
+  getMontantContratBetweenTwoDates() {
+    this.cs
+      .getMontantContratBetweenTwoDates(this.date.startDate, this.date.endDate)
+      .subscribe((res) => {
+        this.sumMontant = res;
+        console.log(this.sumMontant);
+      });
+  }
+
+  clickShowFormButton() {
+    this.showForm = false;
   }
 
   ngOnInit() {
