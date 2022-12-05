@@ -15,6 +15,7 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AddContratComponent } from "src/app/pages/add-contrat/add-contrat.component";
 import { UpdateContratComponent } from "src/app/pages/update-contrat/update-contrat.component";
+import { AddStudentComponent } from "src/app/pages/add-student/add-student.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { UpdateContratComponent } from "src/app/pages/update-contrat/update-cont
     MapsComponent,
     AddContratComponent,
     UpdateContratComponent,
+    AddStudentComponent,
   ],
 })
 export class AdminLayoutModule {}
