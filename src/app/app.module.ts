@@ -17,6 +17,7 @@ import { AddEquipeComponent } from './pages/add-equipe/add-equipe.component';
 import { UpdateEquipeComponent } from './pages/update-equipe/update-equipe.component';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -35,6 +36,7 @@ import { UpdateEquipeComponent } from './pages/update-equipe/update-equipe.compo
     EquipesComponent,
     AddEquipeComponent,
     UpdateEquipeComponent
+    
    
   ],
   providers: [],

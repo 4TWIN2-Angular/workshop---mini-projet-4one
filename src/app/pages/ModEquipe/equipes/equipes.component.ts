@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipe } from 'src/app/Model/equipe';
+import { Niveau } from 'src/app/Model/Niveau';
 import { EquipeService } from 'src/app/services/equipe.service';
+
 
 @Component({
   selector: 'app-equipes',
@@ -10,12 +12,20 @@ import { EquipeService } from 'src/app/services/equipe.service';
 export class EquipesComponent implements OnInit {
 listEquipes!:Equipe[];
 listEtudiants!:any;
+
+selectedTeam:any;
+
+nbreByNiveau!:any;
   constructor(private equipeService:EquipeService) { }
   
 
   ngOnInit(): void {
     this.equipeService.getEquipes().subscribe(res=>this.listEquipes=res);
     console.log(this.listEquipes);
+   
+
+    
+    
   
   }
    
@@ -33,5 +43,14 @@ listEtudiants!:any;
   getEtudiantsByEquipe(id:any)
   {
 this.equipeService.getEtudiantsByEquipe(id).subscribe(res=>this.listEtudiants=res);
+
   }
+countByNiveau(niveau:any)
+{
+  this.equipeService.countEquipeByNiveau(niveau).subscribe(nbreByNiveau=>this.nbreByNiveau=nbreByNiveau);
+
+
+}
+
+  
 }
