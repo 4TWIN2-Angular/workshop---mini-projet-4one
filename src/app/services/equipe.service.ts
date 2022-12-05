@@ -55,4 +55,9 @@ export class EquipeService {
 
   }
 
+  countEquipeByNiveau(niveau:any)
+  {
+    return this.http.get(this.accountUrl+"/countByNiveau/"+niveau);
+  }
+
 }

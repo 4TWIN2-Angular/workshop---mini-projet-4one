@@ -35,7 +35,6 @@ import { ComponentsModule } from "./components/components.module";
     AuthLayoutComponent,
     EquipesComponent,
     AddEquipeComponent,
-
     UpdateEquipeComponent,
   ],
 
