@@ -71,5 +71,11 @@ export class ContratService {
     );
   }
 
+  getnbContratsValides(startDate: string, endDate: string): Observable<number> {
+    return this.http.get<number>(
+      this.apiUrl + "/nbContratsValides/" + startDate + "/" + endDate
+    );
+  }
+
   constructor(private http: HttpClient) {}
 }

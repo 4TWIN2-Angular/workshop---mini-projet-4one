@@ -20,6 +20,7 @@ export class TablesComponent implements OnInit {
     endDate: "",
   };
   sumMontant: number;
+  nbContratsValides: number;
   showForm: boolean = true;
 
   constructor(private cs: ContratService) {}
@@ -63,7 +64,14 @@ export class TablesComponent implements OnInit {
       .getMontantContratBetweenTwoDates(this.date.startDate, this.date.endDate)
       .subscribe((res) => {
         this.sumMontant = res;
-        console.log(this.sumMontant);
+        //console.log(this.sumMontant);
+      });
+
+    this.cs
+      .getnbContratsValides(this.date.startDate, this.date.endDate)
+      .subscribe((res) => {
+        this.nbContratsValides = res;
+        //console.log(this.nbContratsValides);
       });
   }
 
