@@ -290,26 +290,34 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModal2Label">Montant à payer</h5>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <div class="d-flex justify-content-center mb-3">
+                <img
+                  src="assets\img\icons\info.png"
+                  class="img-fluid w-25 h-25"
+                  alt=""
+                />
+              </div>
+              <div class="text-center">
+                Le nombre de contrats encore valides est :
+                <strong style="color: #2dce89"> {{ nbContratsValides }}</strong>
+                <br />
+                Le montant à payer est :
+                <strong style="color: #f5365c"> {{ sumMontant }} TND</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center pt-0">
           <button
             type="button"
-            class="close"
+            class="btn btn-danger"
+            style="background-color: #f75676; border-color: #f75676"
             data-dismiss="modal"
-            aria-label="Close"
           >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Le nombre de contrats encore valides est :
-          <strong style="color: #2dce89"> {{ nbContratsValides }}</strong>
-          <br />
-          Le montant à payer est :
-          <strong style="color: #f5365c"> {{ sumMontant }} TND</strong>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            <i class="fas fa-times"></i>
             Fermer
           </button>
         </div>
