@@ -31,6 +31,7 @@ import { EtudiantsService } from "./pages/tables/etudiants.service";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   declarations: [
     AppComponent,

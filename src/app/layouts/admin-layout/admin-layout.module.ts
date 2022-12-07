@@ -16,6 +16,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AddContratComponent } from "src/app/pages/add-contrat/add-contrat.component";
 import { UpdateContratComponent } from "src/app/pages/update-contrat/update-contrat.component";
 import { AddStudentComponent } from "src/app/pages/add-student/add-student.component";
+import { RechercheComponent } from "src/app/pages/recherche/recherche.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AddStudentComponent } from "src/app/pages/add-student/add-student.compo
     NgbModule,
     ClipboardModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   declarations: [
     DashboardComponent,
@@ -37,6 +39,7 @@ import { AddStudentComponent } from "src/app/pages/add-student/add-student.compo
     AddContratComponent,
     UpdateContratComponent,
     AddStudentComponent,
+    RechercheComponent,
   ],
 })
 export class AdminLayoutModule {}
