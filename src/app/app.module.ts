@@ -12,7 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { ListEquipeComponent } from './list-equipe/list-equipe.component';
+import { ListEquipeComponent } from './pages/list-equipe/list-equipe.component';
+import { UpdateDetailEquipeComponent } from './pages/update-detail-equipe/update-detail-equipe.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ListEquipeComponent } from './list-equipe/list-equipe.component';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    ListEquipeComponent
+    ListEquipeComponent,
+    UpdateDetailEquipeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
