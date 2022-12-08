@@ -46,6 +46,18 @@ export const ROUTES: RouteInfo[] = [
     icon: "ni-folder-17 text-black",
     class: "",
   },
+  {
+    path: "/departement",
+    title: "departement",
+    icon: "ni-archive-2 text-blue",
+    class: "",
+  },
+  {
+    path: "/universite",
+    title: "universite",
+    icon: "ni-archive-2 text-blue",
+    class: "",
+  },
   { path: "/login", title: "Login", icon: "ni-key-25 text-info", class: "" },
   {
     path: "/register",

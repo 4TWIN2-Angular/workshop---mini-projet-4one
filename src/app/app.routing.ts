@@ -30,12 +30,29 @@ const routes: Routes =[
       {
         path: '',
         loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
-      }
+      },
+ 
+      
     ]
-  }, {
+    
+  }, 
+  {path:'departement',
+  loadChildren: () =>
+  import('./departement/departement.module').then(
+    (m) => m.DepartementModule
+  )},
+
+  
+  {path:'universite',
+  loadChildren: () =>
+  import('./universite/universite.module').then(
+    (m) => m.UniversiteModule
+  )},
+  {
     path: '**',
     redirectTo: 'dashboard'
   }
+ 
 ];
 
 @NgModule({

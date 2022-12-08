@@ -1,0 +1,9 @@
+<div *ngIf="validator.invalid">
+  <div *ngIf="validator.errors?.['required']">
+    <span class="badge bg-gradient-danger text-wrap">le champ est vide</span>
+
+  </div>
+  <div *ngIf="validator.errors?.['minlength']">
+    <span class="badge bg-gradient-danger text-wrap">  Minimum 3 lettres</span>
+      </div>
+  </div>
