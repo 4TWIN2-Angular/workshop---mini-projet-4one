@@ -10,12 +10,14 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+import { AppRoutingModule } from "./app.routing";
+import { ComponentsModule } from "./components/components.module";
+import { ListEquipeComponent } from "./pages/list-equipe/list-equipe.component";
+import { UpdateDetailEquipeComponent } from "./pages/update-detail-equipe/update-detail-equipe.component";
+
 import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
 import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.component";
-import { AppRoutingModule } from "./app.routing";
-import { ComponentsModule } from "./components/components.module";
-import { ListEquipeComponent } from "./list-equipe/list-equipe.component";
 
 @NgModule({
   imports: [
@@ -37,6 +39,7 @@ import { ListEquipeComponent } from "./list-equipe/list-equipe.component";
     AddEquipeComponent,
     UpdateEquipeComponent,
     ListEquipeComponent,
+    UpdateDetailEquipeComponent,
   ],
 
   providers: [],

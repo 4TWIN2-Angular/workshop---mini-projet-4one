@@ -11,7 +11,8 @@ import { EquipesComponent } from "src/app/pages/ModEquipe/equipes/equipes.compon
 import { AddEquipeComponent } from "src/app/pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "src/app/pages/update-equipe/update-equipe.component";
 
-import { ListEquipeComponent } from "src/app/list-equipe/list-equipe.component";
+import { ListEquipeComponent } from "src/app/pages/list-equipe/list-equipe.component";
+import { UpdateDetailEquipeComponent } from "src/app/pages/update-detail-equipe/update-detail-equipe.component";
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
@@ -26,4 +27,8 @@ export const AdminLayoutRoutes: Routes = [
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },
   { path: "ListEquipe", component: ListEquipeComponent },
+  {
+    path: "updateDetailE/:idDetailEquipe",
+    component: UpdateDetailEquipeComponent,
+  },
 ];
