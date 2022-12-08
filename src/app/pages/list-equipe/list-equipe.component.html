@@ -30,7 +30,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let detailequipe of listDetailEquipe">
+              <tr *ngFor="let detailequipe of listDetailEquipe | search: searchText | paginate :{id:'listing_pagination',
+              itemsPerPage:5,
+              currentPage:page,
+              totalItems:totalRecords }">
                 <td>
                   {{ detailequipe.salle }}
                 </td>
@@ -66,8 +69,21 @@
               </tr>
             </tbody>
           </table>
+
+                  <pagination-controls id="listingpagination" maxSize="5" (pageChange)="page=$event"  ></pagination-controls>
+
+
+
         </div>
       </div>
+      <div class="input-group input-group-alternative">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </div>
+        <input classe="form-control" type="text" placeholder="Search"[(ngModel)]="searchText" >
+      </div>
+
+
 
 
     </div>
@@ -169,6 +185,7 @@
 
     </div>
   </div>
+
 </div>
 
 
