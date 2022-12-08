@@ -14,6 +14,7 @@ import { UpdateEquipeComponent } from "src/app/pages/update-equipe/update-equipe
 import { ListEquipeComponent } from "src/app/pages/list-equipe/list-equipe.component";
 import { UpdateDetailEquipeComponent } from "src/app/pages/update-detail-equipe/update-detail-equipe.component";
 import { AddStudentComponent } from "src/app/pages/add-student/add-student.component";
+import { TableEtudiantComponent } from "src/app/pages/table-etudiant/table-etudiant.component";
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user-profile/:id", component: UserProfileComponent },
@@ -33,4 +34,5 @@ export const AdminLayoutRoutes: Routes = [
     component: UpdateDetailEquipeComponent,
   },
   { path: "addStudent", component: AddStudentComponent },
+  { path: "tableEtudiant", component: TableEtudiantComponent },
 ];

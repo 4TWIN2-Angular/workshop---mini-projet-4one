@@ -18,6 +18,8 @@ import { UpdateContratComponent } from "src/app/pages/update-contrat/update-cont
 import { AddStudentComponent } from "src/app/pages/add-student/add-student.component";
 import { RechercheComponent } from "src/app/pages/recherche/recherche.component";
 import { OptionStatsComponent } from "src/app/pages/option-stats/option-stats.component";
+import { NgxPaginationModule } from "ngx-pagination";
+import { TableEtudiantComponent } from "src/app/pages/table-etudiant/table-etudiant.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -42,6 +44,7 @@ import { OptionStatsComponent } from "src/app/pages/option-stats/option-stats.co
     AddStudentComponent,
     RechercheComponent,
     OptionStatsComponent,
+    TableEtudiantComponent,
   ],
 })
 export class AdminLayoutModule {}

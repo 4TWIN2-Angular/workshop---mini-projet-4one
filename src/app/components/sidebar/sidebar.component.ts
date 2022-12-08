@@ -23,6 +23,12 @@ export const ROUTES: RouteInfo[] = [
     class: "",
   },
   {
+    path: "/tableEtudiant",
+    title: "Etudiants",
+    icon: "ni-archive-2 text-red",
+    class: "",
+  },
+  {
     path: "/contrats",
     title: "Contrats",
     icon: "ni-archive-2 text-red",

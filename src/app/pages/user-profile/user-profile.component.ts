@@ -9,9 +9,10 @@ import {
 import { ActivatedRoute } from "@angular/router";
 import { Departement } from "src/app/Model/Departement";
 import { Etudiants } from "src/app/Model/Etudiants";
-import { EtudiantsService } from "../tables/etudiants.service";
+
 import { DepartementService } from "./departement.service";
 import { HttpErrorResponse } from "@angular/common/http";
+import { EtudiantsService } from "../table-etudiant/etudiants.service";
 
 @Component({
   selector: "app-user-profile",

@@ -18,7 +18,8 @@ import { UpdateDetailEquipeComponent } from "./pages/update-detail-equipe/update
 import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
 import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.component";
-import { EtudiantsService } from "./pages/tables/etudiants.service";
+import { NgxPaginationModule } from "ngx-pagination";
+import { EtudiantsService } from "./pages/table-etudiant/etudiants.service";
 
 @NgModule({
   imports: [
