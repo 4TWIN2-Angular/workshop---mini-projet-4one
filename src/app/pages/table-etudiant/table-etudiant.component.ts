@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { Notyf } from 'notyf';
 import { Etudiants } from "src/app/Model/Etudiants";
 import { EtudiantsService } from "./etudiants.service";
 
@@ -9,7 +10,9 @@ import { EtudiantsService } from "./etudiants.service";
   templateUrl: "./table-etudiant.component.html",
   styleUrls: ["./table-etudiant.component.css"],
 })
+
 export class TableEtudiantComponent implements OnInit {
+  notyf = new Notyf();
   public etudiants: Etudiants[];
   public deleteEmployee: Etudiants;
   public editEmployee: Etudiants;
@@ -22,17 +25,30 @@ export class TableEtudiantComponent implements OnInit {
   searchT: string = "";
   searchedEtudiants: Etudiants[];
   totalRecords: any;
-  page: number;
+  page:  number;
+  info: number=0;
+  web: number=0;
+  mobile: number=0;
+  totaldeparts:number=0;
+  totalpercentage:string='';
+  x:number=0;
+  w:number=0;
+  totalmobilepercentage:string='';
+
+
   constructor(private etudiantService: EtudiantsService) {}
 
   public getEtudiants(): void {
+
     this.etudiantService.getEmployees().subscribe(
       (response: Etudiants[]) => {
         this.etudiants = response;
         console.log(this.etudiants);
         this.nbrOption();
+
         this.totalRecords = this.etudiants.length;
         console.log(this.totalRecords);
+        this.nbrDepart();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -65,6 +81,25 @@ export class TableEtudiantComponent implements OnInit {
       }
     );
   }
+  nbrDepart(){
+    for(let i =0;i<this.etudiants.length;i++){
+      if(this.etudiants[i].departement.nomDepart ==="info")
+      this.info++;
+      if(this.etudiants[i].departement.nomDepart ==="web")
+      this.web++;
+      if(this.etudiants[i].departement.nomDepart ==="mobile"){
+        this.mobile++;
+      }
+
+      this.totaldeparts++;
+      this.x=this.web/this.totaldeparts*100;
+      this.totalpercentage=`${this.x.toFixed(1)}%`
+      this.w=this.mobile/this.totaldeparts*100
+      this.totalmobilepercentage=`${this.w.toFixed(1)}%`
+  }
+
+
+}
   nbrOption() {
     for (let i = 0; i < this.etudiants.length; i++) {
       if (this.etudiants[i].option === "GAMIX") this.nbgamix++;
@@ -109,6 +144,9 @@ export class TableEtudiantComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEtudiants();
+    this.notyf.success({message:'Dont forget to smile 😊😊!',duration:6000,dismissible:true});
+
+
   }
 
   onsearch(searchValue: string) {

@@ -4,6 +4,8 @@ import { Etudiants } from "src/app/Model/Etudiants";
 import { ContratService } from "../table-etudiant/contrat.service";
 
 import { HttpErrorResponse } from "@angular/common/http";
+import { ToastrService } from 'ngx-toastr';
+import { Notyf } from 'notyf';
 
 import { Equipe } from "src/app/Model/Equipe";
 import { EtudiantsService } from "../table-etudiant/etudiants.service";
@@ -20,10 +22,13 @@ export class AddStudentComponent implements OnInit {
   listEqui: Equipe[];
   equipe: Equipe = new Equipe();
   contrat: Contrat = new Contrat();
+  notyf = new Notyf();
+
+
   constructor(
     private etudiantService: EtudiantsService,
     private contService: ContratService,
-    private equipeService: EquipeService
+    private equipeService: EquipeService,private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -36,8 +41,7 @@ export class AddStudentComponent implements OnInit {
      this.list.push(this.user);
      console.log(this.list);
      this.user=new User();*/
-    this.etudiantService
-      .addAndAsignEtudiantToEquipeAndContract(
+    this.etudiantService.addAndAsignEtudiantToEquipeAndContract(
         this.user,
         this.contrat.idContrat,
         this.equipe.idEquipe
@@ -81,10 +85,13 @@ export class AddStudentComponent implements OnInit {
       button.classList.add("animate");
       setTimeout(() => {
         button.classList.remove("animate");
+        this.notyf.success({message:'Student Added Successfully!',duration:6000,dismissible:true});
         this.user = new Etudiants();
         this.equipe = new Equipe();
         this.contrat = new Contrat();
       }, 10000);
     }
   }
+
+
 }

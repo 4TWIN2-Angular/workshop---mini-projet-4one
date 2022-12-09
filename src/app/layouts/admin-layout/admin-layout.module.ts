@@ -21,6 +21,9 @@ import { OptionStatsComponent } from "src/app/pages/option-stats/option-stats.co
 import { NgxPaginationModule } from "ngx-pagination";
 import { TableEtudiantComponent } from "src/app/pages/table-etudiant/table-etudiant.component";
 // import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -32,6 +35,7 @@ import { TableEtudiantComponent } from "src/app/pages/table-etudiant/table-etudi
     ClipboardModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    ToastrModule.forRoot(),
   ],
   declarations: [
     DashboardComponent,

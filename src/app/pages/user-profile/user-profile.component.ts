@@ -13,6 +13,8 @@ import { Etudiants } from "src/app/Model/Etudiants";
 import { DepartementService } from "./departement.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { EtudiantsService } from "../table-etudiant/etudiants.service";
+import { ToastrService } from 'ngx-toastr';
+import { Notyf } from 'notyf';
 
 @Component({
   selector: "app-user-profile",
@@ -23,8 +25,10 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private us: EtudiantsService,
     private ac: ActivatedRoute,
-    private usd: DepartementService
+    private usd: DepartementService,
+    private toastr: ToastrService
   ) {}
+  notyf = new Notyf();
   id: number;
   etudiantedit: Etudiants;
   listDeparts: Departement[];
@@ -38,7 +42,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDepartements();
-
+   // this.notyf.error('Please fill out the form');
     this.ac.paramMap.subscribe((params) => {
       this.id = +params.get("id");
       console.log(this.id);
@@ -129,10 +133,12 @@ export class UserProfileComponent implements OnInit {
         this.us
           .assigneEtudToDepart(
             this.etudiantedit.idEtudiant,
-            this.myForm.controls["autres"].get("idDepart").value
-          )
+            this.myForm.controls["autres"].get("idDepart").value)
           .subscribe((ress) => {
             this.us.getEmployees().subscribe();
+            //this.toastr.success(this.etudiantedit.nomE+' is modified successfully !', 'Toastr fun!');
+        this.notyf.success({message:'Your changes have been successfully saved!',duration:6000,dismissible:true});
+
           });
       });
 
