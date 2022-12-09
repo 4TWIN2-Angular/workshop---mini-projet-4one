@@ -19,7 +19,7 @@ import { ListComponent } from "src/app/departement/list/list.component";
 import { ListUComponent } from "src/app/universite/list/listU.component";
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
-  { path: "user-profile/:id", component: UserProfileComponent },
+
   { path: "contrats", component: TablesComponent },
   { path: "addContrat", component: AddContratComponent },
   { path: "updateContrat/:idContrat", component: UpdateContratComponent },
@@ -36,7 +36,11 @@ export const AdminLayoutRoutes: Routes = [
     component: UpdateDetailEquipeComponent,
   },
   { path: "addStudent", component: AddStudentComponent },
-  { path: "tableEtudiant", component: TableEtudiantComponent },
   { path: "departement", component: ListComponent },
   { path: "universite", component: ListUComponent },
+  {
+    path: "tableEtudiant",
+    component: TableEtudiantComponent,
+    children: [{ path: "user-profile/:id", component: UserProfileComponent }],
+  },
 ];
