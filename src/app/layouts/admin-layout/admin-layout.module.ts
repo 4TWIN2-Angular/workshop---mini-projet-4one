@@ -21,9 +21,10 @@ import { OptionStatsComponent } from "src/app/pages/option-stats/option-stats.co
 import { NgxPaginationModule } from "ngx-pagination";
 import { TableEtudiantComponent } from "src/app/pages/table-etudiant/table-etudiant.component";
 // import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from "ngx-toastr";
+import { SearchBoxComponent } from "src/app/pages/search-box/search-box.component";
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { ToastrModule } from 'ngx-toastr';
     RechercheComponent,
     OptionStatsComponent,
     TableEtudiantComponent,
+    SearchBoxComponent,
   ],
 })
 export class AdminLayoutModule {}

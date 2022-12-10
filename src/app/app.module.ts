@@ -21,7 +21,7 @@ import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.compo
 import { NgxPaginationModule } from "ngx-pagination";
 import { EtudiantsService } from "./pages/table-etudiant/etudiants.service";
 
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from "ngx-toastr";
 @NgModule({
   imports: [
     FormsModule,
@@ -33,7 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-     BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
   ],
   declarations: [

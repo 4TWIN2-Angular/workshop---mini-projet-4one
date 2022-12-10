@@ -1,3 +1,5 @@
+import { Etudiant } from "./etudiant";
+
 export class Contrat {
   idContrat: number;
   dateDebutContrat: string;
@@ -5,4 +7,5 @@ export class Contrat {
   specialite: string;
   archive: boolean;
   montantContrat: number;
+  etudiant: Etudiant;
 }

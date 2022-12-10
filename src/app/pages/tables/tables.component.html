@@ -8,6 +8,7 @@
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
+  <router-outlet></router-outlet>
   <!-- Table -->
   <!-- Dark table -->
   <div
@@ -26,7 +27,13 @@
     <div class="col">
       <div class="card bg-default shadow mb-5">
         <div class="card-header bg-transparent border-0">
-          <h3 class="text-white mb-0">Contrats étudiants</h3>
+          <div class="d-flex justify-content-between">
+            <h3 class="text-white mb-0">Contrats étudiants</h3>
+            <app-search-box
+              (requested)="searchContrats($event)"
+              [notFound]="err"
+            ></app-search-box>
+          </div>
         </div>
 
         <div class="table-responsive">
@@ -43,11 +50,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let contrat of list">
+              <tr
+                *ngFor="
+                  let contrat of contrats
+                    | paginate
+                      : {
+                          id: 'listingpagination',
+                          itemsPerPage: 5,
+                          currentPage: page,
+                          totalItems: totalRecords
+                        }
+                "
+              >
                 <td>
-                  {{ contrat.dateDebutContrat | date : "dd-MM-yyyy" }}
+                  {{ contrat.dateDebutContrat }}
                 </td>
-                <td>{{ contrat.dateFinContrat | date : "dd-MM-yyyy" }}</td>
+                <td>{{ contrat.dateFinContrat }}</td>
                 <td>
                   {{ contrat.specialite }}
                 </td>
@@ -100,10 +118,10 @@
                 >
                 <td>
                   <button
+                    type="button"
                     class="rounded-btn mr-3"
                     style="background-color: #3f51b5"
-                    type="button"
-                    [routerLink]="['/updateContrat', contrat.idContrat]"
+                    [routerLink]="['updateContrat', contrat.idContrat]"
                   >
                     <i class="fas fa-pen"></i>
                   </button>
@@ -111,7 +129,9 @@
                     class="rounded-btn mr-3"
                     style="background-color: #f75676"
                     type="button"
-                    (click)="deleteContrat(contrat.idContrat)"
+                    (click)="getIdContrat(contrat.idContrat)"
+                    data-toggle="modal"
+                    data-target="#exampleModal3"
                   >
                     <i class="fas fa-trash"></i>
                   </button>
@@ -120,7 +140,23 @@
             </tbody>
           </table>
         </div>
+        <div class="card-footer py-4" style="background-color: unset">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end mb-0">
+              <div>
+                <pagination-controls
+                  id="listingpagination"
+                  maxSize="5"
+                  (pageChange)="page = $event"
+                  previousLabel="Prev"
+                  nextLabel="Next"
+                ></pagination-controls>
+              </div>
+            </ul>
+          </nav>
+        </div>
       </div>
+
       <button
         type="button"
         class="btn btn-primary"
@@ -320,6 +356,49 @@
           >
             <i class="fas fa-times"></i>
             Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="exampleModal3"
+    tabindex="-1"
+    aria-labelledby="exampleModal3Label"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <div class="d-flex justify-content-center mb-3">
+                <img
+                  src="assets\img\icons\cancel.png"
+                  class="img-fluid w-25 h-25"
+                  alt=""
+                />
+              </div>
+              <div class="text-center">
+                <strong style="color: #f5365c">
+                  Voulez-vous vraiment supprimer ce contrat ?</strong
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center pt-0">
+          <button
+            type="button"
+            class="btn btn-danger"
+            style="background-color: #f75676; border-color: #f75676"
+            data-dismiss="modal"
+            (click)="deleteContrat(idContrat)"
+          >
+            <i class="fas fa-trash"></i>
+            Supprimer
           </button>
         </div>
       </div>

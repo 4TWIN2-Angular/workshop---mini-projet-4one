@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Contrat } from "src/app/models/contrat";
 import { Etudiant } from "src/app/models/etudiant";
 import { ContratService } from "src/app/services/contrat.service";
@@ -10,6 +11,7 @@ import { ContratService } from "src/app/services/contrat.service";
 })
 export class TablesComponent implements OnInit {
   list: Contrat[] = [];
+  contrats: Contrat[] = [];
   studentsList: Etudiant[] = [];
   etudiant = <Etudiant>{};
   alert: boolean;
@@ -22,12 +24,29 @@ export class TablesComponent implements OnInit {
   sumMontant: number;
   nbContratsValides: number;
   showForm: boolean = true;
+  totalRecords: any;
+  page: number;
+  err: boolean = false;
 
-  constructor(private cs: ContratService) {}
+  constructor(
+    private cs: ContratService,
+    ac: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    ac.params.subscribe(() => {
+      this.getDataFromContratService();
+      this.alert = this.cs.b;
+      this.msg = this.cs.text;
+    });
+  }
 
   getDataFromContratService() {
     this.cs.getContrats().subscribe((res) => {
       this.list = res;
+      this.contrats = this.list;
       //console.log(this.list);
     });
 
@@ -38,11 +57,12 @@ export class TablesComponent implements OnInit {
   }
 
   deleteContrat(idContrat: number) {
-    this.cs
-      .deleteContrat(idContrat)
-      .subscribe(() =>
-        this.cs.getContrats().subscribe((res) => (this.list = res))
-      );
+    this.cs.deleteContrat(idContrat).subscribe(() =>
+      this.cs.getContrats().subscribe((res) => {
+        this.list = res;
+        this.contrats = this.list;
+      })
+    );
   }
 
   getIdContrat(idContrat: number) {
@@ -51,11 +71,12 @@ export class TablesComponent implements OnInit {
   }
 
   assignEtudiantToContrat(idEtudiant: number) {
-    this.cs
-      .assignEtudiantToContrat(this.idContrat, idEtudiant)
-      .subscribe(() =>
-        this.cs.getContrats().subscribe((res) => (this.list = res))
-      );
+    this.cs.assignEtudiantToContrat(this.idContrat, idEtudiant).subscribe(() =>
+      this.cs.getContrats().subscribe((res) => {
+        this.list = res;
+        this.contrats = this.list;
+      })
+    );
     //console.log(idEtudiant);
   }
 
@@ -79,9 +100,30 @@ export class TablesComponent implements OnInit {
     this.showForm = false;
   }
 
-  ngOnInit() {
-    this.getDataFromContratService();
-    this.alert = this.cs.b;
-    this.msg = this.cs.text;
+  searchContrats(searchValue: string) {
+    const searchedContrats = this.list.filter((contrat) => {
+      for (const key in contrat) {
+        if (contrat[key]?.toString().toLowerCase().includes(searchValue)) {
+          return contrat;
+        }
+        if (typeof contrat[key] === "object" && contrat[key] !== null) {
+          if (
+            contrat.etudiant?.nomE.includes(searchValue) ||
+            contrat.etudiant?.prenomE.includes(searchValue)
+          ) {
+            return contrat;
+          }
+        }
+      }
+    });
+    this.contrats = searchedContrats;
+    //console.log(this.contrats);
+    if (searchedContrats.length === 0) {
+      this.err = true;
+    } else {
+      this.err = false;
+    }
   }
+
+  ngOnInit() {}
 }

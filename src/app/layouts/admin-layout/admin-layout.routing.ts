@@ -19,10 +19,14 @@ import { ListComponent } from "src/app/departement/list/list.component";
 import { ListUComponent } from "src/app/universite/list/listU.component";
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
-
-  { path: "contrats", component: TablesComponent },
+  {
+    path: "contrats",
+    component: TablesComponent,
+    children: [
+      { path: "updateContrat/:idContrat", component: UpdateContratComponent },
+    ],
+  },
   { path: "addContrat", component: AddContratComponent },
-  { path: "updateContrat/:idContrat", component: UpdateContratComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },
   { path: "equipes", component: EquipesComponent },
