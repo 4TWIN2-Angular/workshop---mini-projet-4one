@@ -53,6 +53,12 @@
                         Date fin obligatoire
                       </div>
                     </div>
+                    <div *ngIf="error.isError">
+                      <div class="alert alert-danger" role="alert">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        {{ error.errorMessage }}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

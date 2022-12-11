@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Contrat } from "src/app/models/contrat";
 import { Etudiant } from "src/app/models/etudiant";
 import { ContratService } from "src/app/services/contrat.service";
+declare var $: any;
 
 @Component({
   selector: "app-tables",
@@ -27,6 +28,8 @@ export class TablesComponent implements OnInit {
   totalRecords: any;
   page: number;
   err: boolean = false;
+  error: any = { isError: false, errorMessage: "" };
+  isValidDate: any;
 
   constructor(
     private cs: ContratService,
@@ -80,20 +83,44 @@ export class TablesComponent implements OnInit {
     //console.log(idEtudiant);
   }
 
-  getMontantContratBetweenTwoDates() {
-    this.cs
-      .getMontantContratBetweenTwoDates(this.date.startDate, this.date.endDate)
-      .subscribe((res) => {
-        this.sumMontant = res;
-        //console.log(this.sumMontant);
-      });
+  validateDates(sDate: string, eDate: string) {
+    this.isValidDate = true;
 
-    this.cs
-      .getnbContratsValides(this.date.startDate, this.date.endDate)
-      .subscribe((res) => {
-        this.nbContratsValides = res;
-        //console.log(this.nbContratsValides);
-      });
+    if (sDate != null && eDate != null && eDate < sDate) {
+      this.error = {
+        isError: true,
+        errorMessage: "La date de fin doit être supérieure à la date de début.",
+      };
+      this.isValidDate = false;
+    }
+    return this.isValidDate;
+  }
+
+  getMontantContratBetweenTwoDates() {
+    this.isValidDate = this.validateDates(
+      this.date.startDate,
+      this.date.endDate
+    );
+    if (this.isValidDate) {
+      this.cs
+        .getMontantContratBetweenTwoDates(
+          this.date.startDate,
+          this.date.endDate
+        )
+        .subscribe((res) => {
+          this.sumMontant = res;
+          //console.log(this.sumMontant);
+        });
+
+      this.cs
+        .getnbContratsValides(this.date.startDate, this.date.endDate)
+        .subscribe((res) => {
+          this.nbContratsValides = res;
+          //console.log(this.nbContratsValides);
+        });
+      $("#exampleModal2").modal("show");
+      this.error.isError = false;
+    }
   }
 
   clickShowFormButton() {

@@ -4,8 +4,8 @@
   position: relative;
 }
 .input-search {
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   border-style: none;
   padding: 10px;
   font-size: 16px;
@@ -23,8 +23,8 @@
   font-weight: 100;
 }
 .btn-search {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-style: none;
   font-size: 16px;
   font-weight: bold;
@@ -52,6 +52,6 @@
 .input-search-err:focus {
   width: 300px;
   border-radius: 25px;
-  background-color: #f5365c;
+  background-color: #f75676;
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
