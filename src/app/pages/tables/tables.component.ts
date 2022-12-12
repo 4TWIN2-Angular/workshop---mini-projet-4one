@@ -30,6 +30,7 @@ export class TablesComponent implements OnInit {
   err: boolean = false;
   error: any = { isError: false, errorMessage: "" };
   isValidDate: any;
+  show: boolean = false;
 
   constructor(
     private cs: ContratService,
@@ -111,7 +112,8 @@ export class TablesComponent implements OnInit {
           this.sumMontant = res;
           //console.log(this.sumMontant);
         });
-
+      //this.getContratBetweenTwoDates();
+      this.show = true;
       this.cs
         .getnbContratsValides(this.date.startDate, this.date.endDate)
         .subscribe((res) => {
@@ -120,6 +122,7 @@ export class TablesComponent implements OnInit {
         });
       $("#exampleModal2").modal("show");
       this.error.isError = false;
+      this.showForm = true;
     }
   }
 

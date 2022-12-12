@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { ToastrModule } from "ngx-toastr";
 import { SearchBoxComponent } from "src/app/pages/search-box/search-box.component";
+import { ChartComponent } from "src/app/pages/chart/chart.component";
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { SearchBoxComponent } from "src/app/pages/search-box/search-box.componen
     OptionStatsComponent,
     TableEtudiantComponent,
     SearchBoxComponent,
+    ChartComponent,
   ],
 })
 export class AdminLayoutModule {}

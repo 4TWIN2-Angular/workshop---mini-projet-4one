@@ -241,6 +241,11 @@
           </div>
         </div>
       </div>
+      <app-chart
+        *ngIf="show"
+        [startDate]="date.startDate"
+        [endDate]="date.endDate"
+      ></app-chart>
     </div>
   </div>
   <a routerLink="/addContrat" class="float-btn">

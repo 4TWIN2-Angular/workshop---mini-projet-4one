@@ -77,5 +77,14 @@ export class ContratService {
     );
   }
 
+  getContratBetweenTwoDates(
+    startDate: string,
+    endDate: string
+  ): Observable<Contrat[]> {
+    return this.http.get<Contrat[]>(
+      this.apiUrl + "/contrats/" + startDate + "/" + endDate
+    );
+  }
+
   constructor(private http: HttpClient) {}
 }
