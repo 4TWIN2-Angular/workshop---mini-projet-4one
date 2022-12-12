@@ -24,24 +24,22 @@
           <h3 class="text-white mb-0">Les equipes           <button class="bg-warning "  (click)="upgradeEquipes()">Upgrade</button>
             
           </h3>
+          <br>
 
-        </div>
-       
-        <div class="table-responsive" >
-          <div>
-           <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}: {{nbreByNiveau}} 
-            <select [(ngModel)]="selectedTeam" (click)="countByNiveau(selectedTeam)" aria-label="Selectionner un niveau"  class="bg-warning "  >
-              <option default>Open this select menu</option>
-
+          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}: {{nbreByNiveau}} 
+            <select [(ngModel)]="selectedTeam" (click)="countByNiveau(selectedTeam)" aria-label="Selectionner un niveau"  class="bg-warning "  > 
               <option  value="JUNIOR">JUNIOR</option>
               <option  value="SENIOR">SENIOR</option>
               <option value="EXPERT">EXPERT</option>
              </select>
            </h3> 
-            
-           
-          </div>
-          <br>
+
+        </div>
+      
+         <br>
+       
+        <div class="table-responsive" >
+          
           <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
               <tr>
@@ -67,15 +65,21 @@
                         src="../assets/img/theme/bootstrap.jpg"
                       />
                     </a>
-                    <div class="media-body">
-                      <span class="mb-0 text-sm">{{e.nomEquipe}}</span>
+                    <div >
+                      <div >
+                      <span >{{e.nomEquipe}}</span>
+                    </div>
                     </div>
                   </div>
                 </th>
                
-                <td>
-                  <span class="badge badge-dot mr-4">
+                <td [ngStyle]="{'font-style':e.niveau == 'JUNIOR' ? 'italic' : '' }" class="media-body">
+                  <span [ngStyle]="{'color':e.niveau =='JUNIOR' ? 'yellow' : '' }" class="mb-0 text-sm" class="badge badge-dot mr-4">
+                    <div [ngStyle]="{'color':e.niveau =='SENIOR' ? 'red' : '' }" class="mb-0 text-sm">
+                      <div [ngStyle]="{'color':e.niveau =='EXPERT' ? 'orange' : '' }" class="mb-0 text-sm" >
                     <i class="bg-warning"></i> {{e.niveau}}
+                  </div>
+                  </div>
                   </span>
                   
                 </td>

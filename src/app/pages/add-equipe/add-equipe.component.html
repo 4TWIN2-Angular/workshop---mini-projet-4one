@@ -19,22 +19,31 @@
           <div class="table-responsive" >
             
 
-            <form (ngSubmit)="addEquipe()">
-                <div class="card-body">
+            <form #f="ngForm" (ngSubmit)="addEquipe()">
+                <div class="form-group">
                   <div class="form-group">
                     <label  for="exampleInputEmail1">Nom Equipe</label>
-                    <input [(ngModel)] = "equipeData.nomEquipe" name="nomEquipe" type="text" class="form-control"  placeholder="Nom">
+                    <input [(ngModel)] = "equipeData.nomEquipe" name="nomEquipe" minlength="4" type="text" class="form-control"  placeholder="Nom" #l="ngModel" ngModel required pattern="[a-zA-Z]">
+                  </div>
+                  <div *ngIf="l.invalid && l.touched" class="alert alert-danger">
+                    <div class="error-msg" *ngIf="l.errors?.['required']">Nom is a required field</div> 
+                    <div class="error-msg" *ngIf="l.errors?.['pattern']">Invalid Nom</div> 
+                    <div class="error-msg" *ngIf="l.errors?.['minlength']">Au moins 4 caractères</div> 
+ 
                   </div>
   
-  
                   <label>Options</label>
-                  <select name="departement" class="form-select" aria-label="Default select example" [(ngModel)] = "equipeData.niveau" >
+                  <select name="departement" class="form-select" aria-label="Default select example" ngModel required #e="ngModel" [(ngModel)] = "equipeData.niveau" >
                       
                       <option value="JUNIOR">JUNIOR</option>
                       <option value="SENIOR">SENIOR</option>
                       <option value="EXPERT">EXPERT</option>
                     </select>
                 </div>
+                <div *ngIf="e.invalid && e.touched" class="alert alert-danger">
+                  <div class="error-msg" *ngIf="e.errors?.['required']">Niveau is a required field</div> 
+       
+              </div>
                
                 <!-- /.card-body -->
                
