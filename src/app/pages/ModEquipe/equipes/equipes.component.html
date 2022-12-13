@@ -1,5 +1,3 @@
-
-
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
@@ -28,7 +26,7 @@
           
           <br>
 
-          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}: {{nbreByNiveau}}             <app-equipe [nbreByNiveau]="nbreByNiveau"></app-equipe>
+          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}:        <app-equipe [nbreByNiveau]="nbreByNiveau"></app-equipe>
 
             <select [(ngModel)]="selectedTeam" (click)="countByNiveau(selectedTeam)" aria-label="Selectionner un niveau"  class="bg-warning "  > 
               <option  value="JUNIOR">JUNIOR</option>
@@ -36,11 +34,14 @@
               <option value="EXPERT">EXPERT</option>
              </select>
            </h3> 
+           <br>
+          <h3 class="text-white mb-0">Search:<input #myInput type="text" (input)="search()" [(ngModel)]="nomEquipe" class="" style="width:200px" placeholder="Search"></h3> 
+
 
         </div>
       
-         <br>
-       
+
+         
         <div class="table-responsive" >
           
           <table class="table align-items-center table-dark table-flush">
@@ -53,8 +54,8 @@
                 
               </tr>
             </thead>
-            <tbody>
-              <tr  *ngFor="let e of listEquipes;let i=index">
+            <tbody *ngFor="let e of listEquipes;let i=index">
+              <tr  >
                 <td>{{i+1}}</td>
                 <th scope="row">
                   
@@ -87,7 +88,7 @@
                   
                 </td>
                 <td >
-                  <button class="btn bg-gradient-danger" routerLink="/add-equipe">                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <button class="btn bg-gradient-danger" [routerLink]="['/add-equipe']">                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
                   </button>&nbsp;
                 
                   <button class="btn btn-danger" (click)="deleteEquipe(e.idEquipe)"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp;

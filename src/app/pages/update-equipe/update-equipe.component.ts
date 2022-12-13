@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EquipeService } from 'src/app/services/equipe.service';
+import { Notyf } from 'notyf';
 
 @Component({
   selector: 'app-update-equipe',
@@ -14,11 +15,14 @@ export class UpdateEquipeComponent implements OnInit {
   user_data:FormGroup;
   myForm :FormGroup;
   submitted=false;
+  notyf = new Notyf();
   constructor(private equipeService:EquipeService,private route:ActivatedRoute,private formBuilder:FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['idEquipe'];
     console.log(this.id);
+    this.notyf.success({message:'Equipe modifiée avec success',duration:6000,dismissible:true});
+
 
     this.equipeService.getEquipe(this.id).subscribe(res=>this.equipe=res);
     console.log(this.equipe);
@@ -48,6 +52,7 @@ niveau:new FormControl('Niveau',[]),
     this.equipeService.updateEquipe(this.equipe).subscribe(
       ()=>{
         this.router.navigate(["equipes"])
+
       }
     );
 

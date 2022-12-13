@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Notyf } from 'notyf';
 import { Equipe } from 'src/app/Model/equipe';
 import { Niveau } from 'src/app/Model/Niveau';
 import { EquipeService } from 'src/app/services/equipe.service';
@@ -11,8 +12,9 @@ import { EquipeService } from 'src/app/services/equipe.service';
 })
 export class EquipesComponent implements OnInit {
 listEquipes!:Equipe[];
+nomEquipe!:string;
 listEtudiants!:any;
-
+notyf = new Notyf();
 selectedTeam:any;
 
 nbreByNiveau!:any;
@@ -24,8 +26,9 @@ nbreByNiveau!:any;
     console.log(this.listEquipes);
    
 
-    
-    
+    this.notyf.success({message:'Dont forget to smile 😊😊!',duration:6000,dismissible:true});
+
+    this.notyf.error('Please fill out the form');
   
   }
    
@@ -50,6 +53,21 @@ countByNiveau(niveau:any)
   this.equipeService.countEquipeByNiveau(niveau).subscribe(nbreByNiveau=>this.nbreByNiveau=nbreByNiveau);
 
 
+}
+
+search()
+{
+  this.listEquipes=this.listEquipes.filter(res=>
+    {
+      if(this.nomEquipe!="")
+      {
+        return res.nomEquipe.toLowerCase().match(this.nomEquipe.toLocaleLowerCase());
+
+      }else if(this.nomEquipe=="")
+      {
+        this.ngOnInit();
+      }
+    })
 }
 
   
