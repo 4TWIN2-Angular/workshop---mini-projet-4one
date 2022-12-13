@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Notyf } from 'notyf';
 import { Equipe } from 'src/app/Model/equipe';
 import { Niveau } from 'src/app/Model/Niveau';
@@ -18,13 +19,18 @@ notyf = new Notyf();
 selectedTeam:any;
 
 nbreByNiveau!:any;
-  constructor(private equipeService:EquipeService) { }
+  constructor(private equipeService:EquipeService, private router: Router) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+  }
   
 
   ngOnInit(): void {
     this.equipeService.getEquipes().subscribe(res=>this.listEquipes=res);
     console.log(this.listEquipes);
-   
+    
+
 
     this.notyf.success({message:'Dont forget to smile 😊😊!',duration:6000,dismissible:true});
 
