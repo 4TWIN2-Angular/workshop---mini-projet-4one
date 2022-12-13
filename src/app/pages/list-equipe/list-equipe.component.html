@@ -38,11 +38,13 @@
               itemsPerPage:5,
               currentPage:page,
               totalItems:totalRecords }">
-                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">
+                <td [ngClass]="{ 'background-td': detailequipe.thematique==='SCIENTIFIQUE' }"
+                >
                   {{ detailequipe.salle }}
                 </td>
-                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">{{ detailequipe.thematique }}</td>
-                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">
+                <td [ngClass]="{ 'background-td': detailequipe.thematique==='SCIENTIFIQUE' }"
+                [ngStyle]="{'color':'black', 'font-weight':'800'}">{{ detailequipe.thematique }}</td>
+                <td [ngClass]="{ 'background-td': detailequipe.thematique==='SCIENTIFIQUE' }">
                   <app-combobox-etud [equipeListC]="equipeList"></app-combobox-etud>
                 </td>
 
@@ -52,7 +54,7 @@
 
 
 
-                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">
+                <td [ngClass]="{ 'background-td': detailequipe.thematique==='SCIENTIFIQUE' }">
                   <button
                     class="rounded-btn mr-3"
                     style="background-color: #3f51b5"
