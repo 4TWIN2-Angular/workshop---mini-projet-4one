@@ -1,20 +1,30 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
 
-import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { AppComponent } from "./app.component";
+import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
+import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+<<<<<<< HEAD
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ListEquipeComponent } from './pages/list-equipe/list-equipe.component';
 import { UpdateDetailEquipeComponent } from './pages/update-detail-equipe/update-detail-equipe.component';
+=======
+import { AppRoutingModule } from "./app.routing";
+import { ComponentsModule } from "./components/components.module";
+import { ListEquipeComponent } from "./pages/list-equipe/list-equipe.component";
+import { UpdateDetailEquipeComponent } from "./pages/update-detail-equipe/update-detail-equipe.component";
+>>>>>>> efdd74ac44502422cb9d1b132e4fb6b12289d834
 
+import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
+import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
+import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.component";
 
 @NgModule({
   imports: [
@@ -24,16 +34,27 @@ import { UpdateDetailEquipeComponent } from './pages/update-detail-equipe/update
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+<<<<<<< HEAD
     ListEquipeComponent,
     UpdateDetailEquipeComponent
+=======
+    EquipesComponent,
+    AddEquipeComponent,
+    UpdateEquipeComponent,
+    ListEquipeComponent,
+    UpdateDetailEquipeComponent,
+>>>>>>> efdd74ac44502422cb9d1b132e4fb6b12289d834
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
