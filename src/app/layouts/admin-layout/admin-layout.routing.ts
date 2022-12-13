@@ -1,12 +1,4 @@
 import { Routes } from "@angular/router";
-<<<<<<< HEAD
-
-import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
-import { IconsComponent } from "../../pages/icons/icons.component";
-import { MapsComponent } from "../../pages/maps/maps.component";
-import { UserProfileComponent } from "../../pages/user-profile/user-profile.component";
-import { TablesComponent } from "../../pages/tables/tables.component";
-=======
 
 import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
@@ -19,19 +11,12 @@ import { EquipesComponent } from "src/app/pages/ModEquipe/equipes/equipes.compon
 import { AddEquipeComponent } from "src/app/pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "src/app/pages/update-equipe/update-equipe.component";
 
->>>>>>> efdd74ac44502422cb9d1b132e4fb6b12289d834
 import { ListEquipeComponent } from "src/app/pages/list-equipe/list-equipe.component";
 import { UpdateDetailEquipeComponent } from "src/app/pages/update-detail-equipe/update-detail-equipe.component";
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
   { path: "contrats", component: TablesComponent },
-<<<<<<< HEAD
-  { path: "icons", component: IconsComponent },
-  { path: "maps", component: MapsComponent },
-  {path:"ListEquipe", component:ListEquipeComponent},
-  { path: "updateDetailE/:idDetailEquipe", component: UpdateDetailEquipeComponent },
-=======
   { path: "addContrat", component: AddContratComponent },
   { path: "updateContrat/:idContrat", component: UpdateContratComponent },
   { path: "icons", component: IconsComponent },
@@ -50,5 +35,4 @@ export const AdminLayoutRoutes: Routes = [
       { path: "updateDetailE/:idDetailEquipe", component:UpdateDetailEquipeComponent},
     ],
   },
->>>>>>> efdd74ac44502422cb9d1b132e4fb6b12289d834
 ];
