@@ -23,7 +23,7 @@ export class UpdateEquipeComponent implements OnInit {
     console.log(this.id);
     this.notyf.success({message:'Equipe modifiée avec success',duration:6000,dismissible:true});
 
-
+    
     this.equipeService.getEquipe(this.id).subscribe(res=>this.equipe=res);
     console.log(this.equipe);
 
@@ -52,10 +52,11 @@ niveau:new FormControl('Niveau',[]),
     this.equipeService.updateEquipe(this.equipe).subscribe(
       ()=>{
         this.router.navigate(["equipes"])
+        
 
       }
     );
-
+    
   }
 
   get nomEq(){

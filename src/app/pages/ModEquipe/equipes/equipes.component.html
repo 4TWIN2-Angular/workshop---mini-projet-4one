@@ -35,16 +35,16 @@
         <app-upgradequipe id="upgrade" (upgradeequipe)="upgradeEquipes()"></app-upgradequipe>
   </div>
         <div class="col-md-4">
-          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}:        <app-equipe [nbreByNiveau]="nbreByNiveau"></app-equipe>
+          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}:        <app-equipe  [nbreByNiveau]="nbreByNiveau"></app-equipe>
 
-            <select [(ngModel)]="selectedTeam" (click)="countByNiveau(selectedTeam)" aria-label="Selectionner un niveau"  class="bg-warning "  > 
+            <select style="width:150px" [(ngModel)]="selectedTeam" (click)="countByNiveau(selectedTeam)" aria-label="Selectionner un niveau"  class="bg-warning "  > 
               <option  value="JUNIOR">JUNIOR</option>
               <option  value="SENIOR">SENIOR</option>
               <option value="EXPERT">EXPERT</option>
              </select>
            </h3>    </div>
           <div class="col-md-4">
-                     <h3 class="text-white mb-0">Search:<input #myInput type="text" (input)="search()"  [(ngModel)]="nomEquipe"  class="bg-warning " style="width:200px" placeholder="Search"></h3> 
+                     <h3 class="text-white mb-0">Search:<input #myInput type="text" (input)="search()"  [(ngModel)]="nomEquipe"  class="bg-warning " style="width:150px" placeholder="Search"></h3> 
   </div>
           </div>
           <br>
@@ -99,7 +99,7 @@
                   </button>&nbsp;
                 
                   <button class="btn btn-danger" (click)="deleteEquipe(e.idEquipe)"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp;
-                  <button class="btn btn-info" [routerLink]="['/updateEquipe',e.idEquipe]"><i class="fa fa-pen" aria-hidden="true"></i></button>&nbsp;
+                  <button class="btn btn-info" [routerLink]="['updateEquipe',e.idEquipe]"><i class="fa fa-pen" aria-hidden="true"></i></button>&nbsp;
                   <div  (click)="getEtudiantsByEquipe(e.idEquipe)" ngbDropdown placement="bottom-right">
                     <a  class="btn btn-sm btn-icon-only text-light"ngbDropdownToggle>
                       <i class="fas fa-ellipsis-v"></i>
@@ -113,9 +113,13 @@
               
               </tr>
             </tbody>
+
           </table>
+
         </div>
+
       </div>
+      <router-outlet></router-outlet>
 
     </div>
   </div>
