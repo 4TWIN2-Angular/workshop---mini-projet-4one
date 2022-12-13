@@ -26,9 +26,13 @@ export const AdminLayoutRoutes: Routes = [
   { path: "updateEquipe/:idEquipe", component: UpdateEquipeComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },
-  { path: "ListEquipe", component: ListEquipeComponent },
+
+
   {
-    path: "updateDetailE/:idDetailEquipe",
-    component: UpdateDetailEquipeComponent,
+    path: "ListEquipe",
+    component: ListEquipeComponent,
+    children: [
+      { path: "updateDetailE/:idDetailEquipe", component:UpdateDetailEquipeComponent},
+    ],
   },
 ];

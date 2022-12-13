@@ -3,6 +3,9 @@ import { EventEmitter } from 'stream';
 import { detailequipe } from '../../models/detailequipe';
 import { DetailEquipeServiceService } from '../../services/detail-equipe-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Equipe } from 'src/app/models/equipe';
+import { EquipeService } from 'src/app/services/equipe.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-list-equipe',
   templateUrl: './list-equipe.component.html',
@@ -15,8 +18,20 @@ id:number;
 page:Number=1;
 totalRecords:any;
 searchString:string;
+equipeList:Equipe[]=[];
   constructor(private des:DetailEquipeServiceService,
-    private toastr:ToastrService ) { }
+    ac: ActivatedRoute,
+    private router: Router,
+    private toastr:ToastrService , private ES: EquipeService) { this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.des.retrieveAllDetailEquipes().subscribe((res)=>{this.listDetailEquipe=res;
+      this.totalRecords = this.listDetailEquipe.length
+      console.log(this.listDetailEquipe);});
+      this.ES.getEquipes().subscribe((res)=>{
+        this.equipeList=res;
+      })
+     }
 
 
 searchText ='';
@@ -43,6 +58,9 @@ alerttoastr(){
     this.des.retrieveAllDetailEquipes().subscribe((res)=>{this.listDetailEquipe=res;
       this.totalRecords = this.listDetailEquipe.length
       console.log(this.listDetailEquipe);});
+      this.ES.getEquipes().subscribe((res)=>{
+        this.equipeList=res;
+      })
 
 
   }

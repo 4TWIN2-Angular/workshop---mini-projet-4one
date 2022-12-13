@@ -21,6 +21,8 @@ import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.compo
 import { SearchPipe } from './search.pipe';
 import { NgxPaginationModule } from "ngx-pagination";
 import { ToastrModule } from 'ngx-toastr';
+import { ComboboxEtudComponent } from './pages/combobox-etud/combobox-etud.component';
+import { ThematiqueComponent } from './pages/thematique/thematique.component';
 
 @NgModule({
   imports: [
@@ -46,6 +48,8 @@ import { ToastrModule } from 'ngx-toastr';
     ListEquipeComponent,
     UpdateDetailEquipeComponent,
     SearchPipe,
+    ComboboxEtudComponent,
+    ThematiqueComponent,
 
   ],
 

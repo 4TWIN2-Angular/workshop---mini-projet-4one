@@ -27,5 +27,21 @@ accountUrl="http://localhost:9090";
     return this.http.put(this.accountUrl+"/updateDEquipe/"+idDetailEquipe,detailequipe);
   }
 
+  public retrieveLangue():Observable<number>{
+    console.log("service appelé");
+    return this.http.get<number>(this.accountUrl+"/nbLangue");
+  }
+  public retrieveScience():Observable<number>{
+    console.log("service appelé");
+    return this.http.get<number>(this.accountUrl+"/nbScience");
+  }
+  public retrieveMath():Observable<number>{
+    console.log("service appelé");
+    return this.http.get<number>(this.accountUrl+"/nbmath");
+  }
+  public retrieveHistoire():Observable<number>{
+    console.log("service appelé");
+    return this.http.get<number>(this.accountUrl+"/nbhist");
+  }
 
 }

@@ -1,0 +1,17 @@
+
+<div><select
+                id="select-equipe"
+                name="equipe"
+                class="form-control form-control-alternative mb-2"
+                aria-label="Default select example"
+
+
+              >
+                <option value="default">----</option>
+                <option
+                  *ngFor="let equipe of equipeListC"
+                  [value]="equipe.idEquipe"
+                >
+                  {{ equipe.nomEquipe }}
+                </option>
+              </select></div>

@@ -1,16 +1,20 @@
+
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
+
       <!-- Card stats -->
       <div class="row"></div>
     </div>
   </div>
 </div>
+
 <!-- Page content -->
 <div class="container-fluid mt--7">
+  <app-thematique></app-thematique>
   <!-- Table -->
   <!-- Dark table -->
-
+  <router-outlet></router-outlet>
 
   <div class="row">
     <div class="col">
@@ -34,12 +38,12 @@
               itemsPerPage:5,
               currentPage:page,
               totalItems:totalRecords }">
-                <td>
+                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">
                   {{ detailequipe.salle }}
                 </td>
-                <td>{{ detailequipe.thematique }}</td>
-                <td>
-                  {{ detailequipe.equipe?.nomEquipe }}
+                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">{{ detailequipe.thematique }}</td>
+                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">
+                  <app-combobox-etud [equipeListC]="equipeList"></app-combobox-etud>
                 </td>
 
 
@@ -48,12 +52,12 @@
 
 
 
-                <td>
+                <td [ngClass]="{ 'background-td': detailequipe.salle%2===0 }">
                   <button
                     class="rounded-btn mr-3"
                     style="background-color: #3f51b5"
                     type="button"
-                    [routerLink]="['/updateDetailE', detailequipe.idDetailEquipe]"
+                    [routerLink]="['updateDetailE', detailequipe.idDetailEquipe]"
                   >
                     <i class="fas fa-pen"></i>
                   </button>
@@ -78,11 +82,12 @@
 
         </div>
       </div>
+
       <div class="input-group input-group-alternative">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-search"></i></span>
         </div>
-        <input classe="form-control" type="text" placeholder="Search"[(ngModel)]="searchText" >
+        <input classe="form-control" type="text"  placeholder="Search"[(ngModel)]="searchText" >
 
       </div>
 
@@ -152,23 +157,21 @@
                   <label class="form-control-label" for="input-them"
                     >thématique</label
                   >
-                  <input
-                    type="text"
-                    id="input-them"
-                    name="thematique"
-                    class="form-control form-control-alternative"
-                    placeholder="thematique"
+                  <div><select
+                    id="select-equipe"
+                    name="equipe"
+                    class="form-control form-control-alternative mb-2"
+                    aria-label="Default select example"
                     [(ngModel)]="detailE.thematique"
-                    required
 
-                    #thematique="ngModel"
-                  />
-                  <div *ngIf="thematique.errors?.['required']">
-                    <div class="alert alert-danger" role="alert">
-                      <i class="fas fa-exclamation-triangle mr-2"></i>
-                      thematique obligatoire
-                    </div>
-                  </div>
+
+                  >
+                    <option value="SCIENTIFIQUE">SCIENTIFIQUE</option>
+                    <option  value="LANGUE" >LANGUE</option>                    >
+                    <option  value="HISTOIRE">HISTOIRE</option>
+                    <option  value="MATHEMATIQUE">MATHEMATIQUE</option>
+                  </select></div>
+
 
                 </div>
               </div>
@@ -184,12 +187,15 @@
           >
             Ajouter detail equipe
           </button>
+
         </form>
       </div>
 
     </div>
   </div>
-
+  <div class="wrap">
+    <button class="button1">Submit</button>
+  </div>
 </div>
 
 
