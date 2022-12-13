@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'stream';
 import { detailequipe } from '../../models/detailequipe';
 import { DetailEquipeServiceService } from '../../services/detail-equipe-service.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-list-equipe',
   templateUrl: './list-equipe.component.html',
@@ -11,8 +12,20 @@ export class ListEquipeComponent implements OnInit {
 listDetailEquipe: detailequipe[]=[];
 detailE = <detailequipe>{};
 id:number;
+page:Number=1;
+totalRecords:any;
+searchString:string;
+  constructor(private des:DetailEquipeServiceService,
+    private toastr:ToastrService ) { }
 
-  constructor(private des:DetailEquipeServiceService ) { }
+
+searchText ='';
+showToastr(){
+  this.toastr.success("Validé");
+}
+alerttoastr(){
+  this.toastr.warning('supprimé !')
+}
   addDe(){
     this.des.addDetailEquipe(this.detailE).subscribe(()=>{
       this.des.retrieveAllDetailEquipes().subscribe((res)=>{this.listDetailEquipe=res;});
@@ -28,6 +41,7 @@ id:number;
   }
   ngOnInit(): void {
     this.des.retrieveAllDetailEquipes().subscribe((res)=>{this.listDetailEquipe=res;
+      this.totalRecords = this.listDetailEquipe.length
       console.log(this.listDetailEquipe);});
 
 

@@ -30,7 +30,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let detailequipe of listDetailEquipe">
+              <tr *ngFor="let detailequipe of listDetailEquipe | search: searchText | paginate :{id:'listing_pagination',
+              itemsPerPage:5,
+              currentPage:page,
+              totalItems:totalRecords }">
                 <td>
                   {{ detailequipe.salle }}
                 </td>
@@ -59,15 +62,31 @@
                     style="background-color: #f75676"
                     type="button"
                     (click)="deleteDe(detailequipe.idDetailEquipe)"
+                    (click)="alerttoastr()"
                   >
+
                     <i class="fas fa-trash"></i>
                   </button>
                 </td>
               </tr>
             </tbody>
           </table>
+
+                  <pagination-controls id="listingpagination" maxSize="5" (pageChange)="page=$event"  ></pagination-controls>
+
+
+
         </div>
       </div>
+      <div class="input-group input-group-alternative">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </div>
+        <input classe="form-control" type="text" placeholder="Search"[(ngModel)]="searchText" >
+
+      </div>
+
+
 
 
     </div>
@@ -98,28 +117,28 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label" for="input-montant"
+                  <label class="form-control-label" for="input-salle"
                     >Salle</label
                   >
 
                   <input
                   type="number"
-                  id="input-montant"
-                  name="montant"
+                  id="input-salle"
+                  name="salle"
                   class="form-control form-control-alternative"
-                  placeholder="Montant"
+                  placeholder="salle"
                   [(ngModel)]="detailE.salle"
                   required
                   pattern="[1-9][0-9]*"
-                  #montant="ngModel"
+                  #salle="ngModel"
                 />
-                <div *ngIf="montant.errors?.['required']">
+                <div *ngIf="salle.errors?.['required']">
                   <div class="alert alert-danger" role="alert">
                     <i class="fas fa-exclamation-triangle mr-2"></i>
                     Salle obligatoire
                   </div>
                 </div>
-                <div *ngIf="montant.errors?.['pattern']">
+                <div *ngIf="salle.errors?.['pattern']">
                   <div class="alert alert-danger" role="alert">
                     <i class="fas fa-exclamation-triangle mr-2"></i>
                     La salle ne contient que des chiffres
@@ -161,6 +180,7 @@
             type="submit"
             class="btn btn-primary mt-3"
             [disabled]="form.invalid"
+            (click)="showToastr()"
           >
             Ajouter detail equipe
           </button>
@@ -169,6 +189,7 @@
 
     </div>
   </div>
+
 </div>
 
 

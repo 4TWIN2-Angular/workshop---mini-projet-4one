@@ -25,6 +25,9 @@ import { UpdateDetailEquipeComponent } from "./pages/update-detail-equipe/update
 import { EquipesComponent } from "./pages/ModEquipe/equipes/equipes.component";
 import { AddEquipeComponent } from "./pages/add-equipe/add-equipe.component";
 import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.component";
+import { SearchPipe } from './search.pipe';
+import { NgxPaginationModule } from "ngx-pagination";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -37,6 +40,8 @@ import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.compo
     AppRoutingModule,
 
     HttpClientModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot(),
   ],
   declarations: [
     AppComponent,
@@ -51,7 +56,12 @@ import { UpdateEquipeComponent } from "./pages/update-equipe/update-equipe.compo
     UpdateEquipeComponent,
     ListEquipeComponent,
     UpdateDetailEquipeComponent,
+<<<<<<< HEAD
 >>>>>>> efdd74ac44502422cb9d1b132e4fb6b12289d834
+=======
+    SearchPipe,
+
+>>>>>>> 2cbb1ac9e77194f273aa4648f27020848ecc9502
   ],
 
   providers: [],
