@@ -25,7 +25,7 @@ export class UpdateEquipeComponent implements OnInit {
 
    this.user_data = new FormGroup({
       autres:new FormGroup({
-nomEquipe: new FormControl('',[Validators.required,Validators.minLength(3),Validators.pattern('[a-zA-Z]*')]),
+nomEquipe: new FormControl('',[Validators.required,Validators.minLength(4),Validators.pattern('[a-zA-Z]*')]),
 niveau:new FormControl('Niveau',[]),
 }),
     

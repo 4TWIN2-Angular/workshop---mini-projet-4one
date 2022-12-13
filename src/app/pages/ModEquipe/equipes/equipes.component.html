@@ -21,12 +21,15 @@
   
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
-          <h3 class="text-white mb-0">Les equipes           <button class="bg-warning "  (click)="upgradeEquipes()">Upgrade</button>
             
-          </h3>
+<app-upgradequipe (upgradeequipe)="upgradeEquipes()"></app-upgradequipe>
+
+
+          
           <br>
 
-          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}: {{nbreByNiveau}} 
+          <h3 class="text-white mb-0">Nombre d'équipes {{selectedTeam}}: {{nbreByNiveau}}             <app-equipe [nbreByNiveau]="nbreByNiveau"></app-equipe>
+
             <select [(ngModel)]="selectedTeam" (click)="countByNiveau(selectedTeam)" aria-label="Selectionner un niveau"  class="bg-warning "  > 
               <option  value="JUNIOR">JUNIOR</option>
               <option  value="SENIOR">SENIOR</option>
