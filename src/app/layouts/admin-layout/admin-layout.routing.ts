@@ -29,7 +29,12 @@ export const AdminLayoutRoutes: Routes = [
   { path: "addContrat", component: AddContratComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },
-  { path: "equipes", component: EquipesComponent },
+ {path:"equipes" ,component:EquipesComponent,children:
+[
+  { path:'updateEquipe/:idEquipe',component: UpdateEquipeComponent},
+
+]},
+  { path:'add-equipe',component: AddEquipeComponent},
   { path: "add-equipe", component: AddEquipeComponent },
   { path: "updateEquipe/:idEquipe", component: UpdateEquipeComponent },
   { path: "icons", component: IconsComponent },

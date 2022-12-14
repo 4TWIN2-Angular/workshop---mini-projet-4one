@@ -22,6 +22,8 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { EtudiantsService } from "./pages/table-etudiant/etudiants.service";
 
 import { ToastrModule } from "ngx-toastr";
+import { EquipeComponent } from './pages/equipe/equipe.component';
+import { UpgradequipeComponent } from './pages/upgradequipe/upgradequipe.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -45,6 +47,8 @@ import { ToastrModule } from "ngx-toastr";
     UpdateEquipeComponent,
     ListEquipeComponent,
     UpdateDetailEquipeComponent,
+    EquipeComponent,
+    UpgradequipeComponent,
   ],
 
   providers: [EtudiantsService],

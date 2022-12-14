@@ -1,51 +1,55 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-      <div class="header-body">
-        <!-- Card stats -->
-        <div class="row"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Page content -->
-  <div class="container-fluid mt--7">
-    <!-- Table -->
-    <!-- Dark table -->
-    <div class="row mt-5">
-      <div class="col">
-        <div class="card bg-default shadow">
-          <div class="card-header bg-transparent border-0">
-            <h3 class="text-white mb-0">Ajouter une equipe</h3>
-          </div>
-          <div class="table-responsive" >
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text mb-0">Modifier une equipe</h3>
+        </div>
+        <div class="table-responsive" >
+          
+          <form [formGroup]="user_data" (ngSubmit)="updateEquipe()" > 
+            <div formGroupName="autres">
+                <div class="form-group">
+            <label>Nom Equipe</label>
+            <input class="form-control" type="text" formControlName="nomEquipe" name="nomequipe" id="nomequipe" [(ngModel)] = "equipe.nomEquipe"  >
+        <div *ngIf="user_data.get('autres').get('nomEquipe').invalid && user_data.get('autres').get('nomEquipe').touched" >
+            <div *ngIf="user_data.get('autres').get('nomEquipe').errors['required']" class="alert alert-danger" role="alert">
+                Nom Equipe Obligatoire !
+              </div>
+              <div *ngIf="nomEq.errors?.['minlength']" class="alert alert-danger" role="alert">
+               nom equipe contient au moins 4 lettres
+             </div>
             
+        </div>
+        
+        </div>
+    
+        <div class="form-group">
+          <label>Niveau Equipe</label>
+      
+          <select name="departement" class="form-control" aria-label="Default select example" formControlName="niveau" [(ngModel)] = "equipe.niveau" >
+                    
+            <option value="JUNIOR">JUNIOR</option>
+            <option value="SENIOR">SENIOR</option>
+            <option value="EXPERT">EXPERT</option>
+          </select>
+      </div>
 
-            <form (ngSubmit)="updateEquipe()">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label  for="exampleInputEmail1">Nom Equipe</label>
-                    <input [(ngModel)] = "equipe.nomEquipe" name="nomEquipe" type="text" class="form-control"  placeholder="Nom">
-                  </div>
-  
-  
-                  <label>Options</label>
-                  <select name="departement" class="form-select" aria-label="Default select example" [(ngModel)] = "equipe.niveau" >
-                      
-                      <option value="JUNIOR">JUNIOR</option>
-                      <option value="SENIOR">SENIOR</option>
-                      <option value="EXPERT">EXPERT</option>
-                    </select>
-                </div>
-                <!-- /.card-body -->
-               
-                <div class="card-footer">
-                  <button type="submit"  class="btn btn-primary">Submit</button>
-                  
-                </div>
-              </form>
+              
+        
+        
+        <button class="btn btn-info" [disabled]="user_data.invalid" type="submit">Save</button>
+        
+        </div>
+        </form>
+          
 
-          </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

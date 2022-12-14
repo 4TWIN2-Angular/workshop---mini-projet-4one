@@ -1,45 +1,79 @@
-import { Component, OnInit } from "@angular/core";
-import { Equipe } from "src/app/models/equipe";
-import { Niveau } from "src/app/models/Niveau";
-import { EquipeService } from "src/app/services/equipe.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Equipe } from 'src/app/Model/equipe';
+import { EquipeService } from 'src/app/services/equipe.service';
+import { Notyf } from 'notyf';
+
+
 
 @Component({
-  selector: "app-equipes",
-  templateUrl: "./equipes.component.html",
-  styleUrls: ["./equipes.component.css"],
+  selector: 'app-equipes',
+  templateUrl: './equipes.component.html',
+  styleUrls: ['./equipes.component.css']
 })
 export class EquipesComponent implements OnInit {
-  listEquipes!: Equipe[];
-  listEtudiants!: any;
+listEquipes!:Equipe[];
+nomEquipe!:string;
+listEtudiants!:any;
+notyf = new Notyf();
+selectedTeam:any;
 
-  selectedTeam: any;
-
-  nbreByNiveau!: any;
-  constructor(private equipeService: EquipeService) {}
+nbreByNiveau!:any;
+  constructor(private equipeService:EquipeService, private router: Router) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+  }
+  
 
   ngOnInit(): void {
-    this.equipeService
-      .getEquipes()
-      .subscribe((res) => (this.listEquipes = res));
+    this.equipeService.getEquipes().subscribe(res=>this.listEquipes=res);
     console.log(this.listEquipes);
-  }
+    
 
-  deleteEquipe(id: any) {
+
+   // this.notyf.success({message:'Dont forget to smile 😊😊!',duration:6000,dismissible:true});
+
+  
+  }
+   
+  deleteEquipe(id:any)
+  {
     this.equipeService.deleteEquipe(id).subscribe();
     location.reload();
+
   }
-  upgradeEquipes() {
+  upgradeEquipes()
+  {
     this.equipeService.upgradeEquipe().subscribe();
     location.reload();
   }
-  getEtudiantsByEquipe(id: any) {
-    this.equipeService
-      .getEtudiantsByEquipe(id)
-      .subscribe((res) => (this.listEtudiants = res));
+  getEtudiantsByEquipe(id:any)
+  {
+this.equipeService.getEtudiantsByEquipe(id).subscribe(res=>this.listEtudiants=res);
+
   }
-  countByNiveau(niveau: any) {
-    this.equipeService
-      .countEquipeByNiveau(niveau)
-      .subscribe((nbreByNiveau) => (this.nbreByNiveau = nbreByNiveau));
-  }
+countByNiveau(niveau:any)
+{
+  this.equipeService.countEquipeByNiveau(niveau).subscribe(nbreByNiveau=>this.nbreByNiveau=nbreByNiveau);
+
+
+}
+
+search()
+{
+  this.listEquipes=this.listEquipes.filter(res=>
+    {
+      if(this.nomEquipe!="")
+      {
+        return res.nomEquipe.toLowerCase().match(this.nomEquipe.toLocaleLowerCase());
+
+      }else if(this.nomEquipe=="")
+      {
+        this.ngOnInit();
+      }
+    })
+}
+
+  
 }
